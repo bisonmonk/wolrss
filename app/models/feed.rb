@@ -42,7 +42,6 @@ class Feed < ActiveRecord::Base
     else
       new_entry.image = entry.image
     end
-    #debugger
     new_entry.save!
   end
   

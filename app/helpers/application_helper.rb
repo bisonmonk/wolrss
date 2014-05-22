@@ -1,6 +1,6 @@
 module ApplicationHelper
   
-  helper_method :signed_in?, :current_user
+  #helper_methods :signed_in?, :current_user
   
   def current_user
     return nil unless session[:session_token]

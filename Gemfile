@@ -46,7 +46,9 @@ end
 
 gem 'annotate'
 
-gem 'rails_12factor'
+group :production do
+  gem 'rails_12factor'
+end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
