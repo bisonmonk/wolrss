@@ -12,6 +12,12 @@
 
 
 
+#Changes to entry data
+###Remove published_at - not standardized
+###Remove json
+##Differences between feedjira and simple-rss
+###guid in simple-rss is url in feedjira 
+
 
 ##Searching content
 ####JS Library: typeahead.js
@@ -40,7 +46,7 @@ The New York Times:http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome
 NPR:http://www.npr.org/rss/rss.php?id=1001
 BBC:http://feeds.bbci.co.uk/news/rss.xml
 CNN:http://rss.cnn.com/rss/cnn_topstories.rss
-Reuters:http://feeds.reuters.com/reuters/topNews?format=xml
+Reuters:http://www.reuters.com/rssFeed/topNews
   -img:http://s1.reutersmedia.net/resources/r/?m=02&d=20140521&t=2&i=898791334&w=&fh=&fw=&ll=580&pl=378&r=CBREA4K17S000
 
 ###Business

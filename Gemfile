@@ -56,3 +56,7 @@ gem 'bootstrap-sass'
 
 gem 'simple-rss'
 gem 'feedjira'
+gem 'fastimage'
+gem 'hashie'
+gem 'rest-client'
+gem 'nokogiri'

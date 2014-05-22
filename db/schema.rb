@@ -11,21 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521203758) do
+ActiveRecord::Schema.define(version: 20140522054048) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "entries", force: true do |t|
-    t.string   "guid",         null: false
-    t.string   "link",         null: false
+    t.string   "url",          null: false
     t.string   "title",        null: false
     t.datetime "published_at", null: false
     t.integer  "feed_id",      null: false
-    t.text     "json",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
-  add_index "entries", ["feed_id"], name: "index_entries_on_feed_id"
-  add_index "entries", ["guid"], name: "index_entries_on_guid", unique: true
+  add_index "entries", ["feed_id"], name: "index_entries_on_feed_id", using: :btree
+  add_index "entries", ["url"], name: "index_entries_on_url", unique: true, using: :btree
 
   create_table "feeds", force: true do |t|
     t.string   "url",        null: false
@@ -34,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140521203758) do
     t.datetime "updated_at"
   end
 
-  add_index "feeds", ["url"], name: "index_feeds_on_url", unique: true
+  add_index "feeds", ["url"], name: "index_feeds_on_url", unique: true, using: :btree
 
   create_table "user_feeds", force: true do |t|
     t.integer  "user_id"
@@ -51,6 +53,6 @@ ActiveRecord::Schema.define(version: 20140521203758) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
