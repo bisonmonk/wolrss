@@ -34,24 +34,20 @@ class Feed < ActiveRecord::Base
     new_entry.title = entry.title
     new_entry.feed_id = feed_id
     new_entry.published_at = entry.published
-
-    #if there the image attribute is nil
-    if entry.image.nil?
-      #use og image or, last resort, img tag src attribute
-      new_entry.image = Feed.find_og_image(entry.url) || Feed.find_image(entry.summary)
+    
+    og = OpenGraph.fetch(entry.url)
+    
+    #if open graph object exists / is not false
+    if og
+      new_entry.image = og.image
+      new_entry.summary = og.description
     else
-      new_entry.image = entry.image
+      #set attrs to shitty defaults
+      new_entry.image = entry.image || Feed.find_image(entry.summary)
+      new_entry.summary = entry.summary
     end
+    
     new_entry.save!
-  end
-  
-  #find an og:image in page header
-  def self.find_og_image(url)
-    og = OpenGraph.fetch(url)
-    if !og
-      return nil
-    end 
-    return og.image
   end
   
   #finds an image url if it exists and returns it
