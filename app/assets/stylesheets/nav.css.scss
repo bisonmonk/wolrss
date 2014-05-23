@@ -15,15 +15,15 @@
  color: #c2c2c2;
 }
 
-//.feed-title .feed-count {
-//  display: inline-block;
-//  float: left;
-//}
-
 .feed-info {
-  font-family: 'News Cycle';
+  font-family: 'Roboto';
   padding-top: 15px;
   margin-left: 15px;
+  font-weight: 300;
+}
+
+.feed-title {
+  font-weight: bold;
 }
 
 .feed-info > span {
