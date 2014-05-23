@@ -1,4 +1,4 @@
-WellFed.Views.FeedShow = Backbone.CompositeView.extend({
+WellFed.Views.FeedView = Backbone.CompositeView.extend({
   className: "feed container",
   
   template: JST["feeds/show"],

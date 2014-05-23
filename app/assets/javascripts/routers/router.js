@@ -6,11 +6,11 @@ WellFed.Routers.Router = Backbone.Router.extend({
   feedShow: function(id) {
     var feed = WellFed.Collections.feeds.getOrFetch(id);
     
-    var showView = new WellFed.Views.FeedShow({
+    var feedView = new WellFed.Views.FeedView({
       model: feed
     });
     
-    this._swapView(showView)
+    this._swapView(feedView)
   },
   
   _swapView: function(view) {
