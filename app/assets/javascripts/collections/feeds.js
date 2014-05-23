@@ -1,10 +1,10 @@
 WellFed.Collections.Feeds = Backbone.Collection.extend({
-  model: WellFed.Model.Feed,
-  url: "/api/feeds",
+  model: WellFed.Models.Feed,
+  
+  url: "api/feeds",
   
   getOrFetch: function(id) {
     var feed = this.get(id);
-    
     if (feed) {
       return feed;
     } else {
@@ -19,4 +19,4 @@ WellFed.Collections.Feeds = Backbone.Collection.extend({
   } 
 });
 
-WellFed.Collections.feeds = new WellFed.Collections.Feeds();
+//WellFed.Collections.feeds = new WellFed.Collections.Feeds();

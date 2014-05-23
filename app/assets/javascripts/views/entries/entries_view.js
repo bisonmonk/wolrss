@@ -12,5 +12,5 @@ WellFed.Views.EntriesView = Backbone.View.extend({
       that.$el.append(entryView.render().$el);
     });
     return this;
-  };
+  }
 });

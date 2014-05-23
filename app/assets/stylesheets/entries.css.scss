@@ -1,3 +1,58 @@
 // Place all the styles related to the entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#entries > ul {
+  list-style-type: none;
+}
+
+.entry {
+  
+}
+
+body {
+  background-color: #1A1919;
+}
+
+.entry-title {
+  margin-top: 10px;
+  margin-left: -6px;
+  font-size: 19px;
+  width: 42%;
+  background-color:rgba(0,0,0,0.24);
+  //border-radius: 2px;
+  padding: 5px;
+}
+
+.entry-summary {
+//  height: 30%;
+//  width: 80%;
+  position: absolute;
+  bottom: 0;
+  background-color:rgba(0,0,0,0.24);
+  font-size: 14px;
+  padding: 5px;
+  padding-top: 0px;
+  //border-radius: 2px;
+  margin-left: -6px;
+  margin-right: 9px;
+  margin-bottom: 9px;
+}
+
+.entry-item {
+  background-size: 500px;
+  background-repeat: no-repeat;
+  height: 230px;
+  width: 450px;
+  color: #FFFFFF;
+  font-family: 'News Cycle', sans-serif;
+  border: 1px solid #FFFFFF;
+}
+
+.entry-item {}
+
+
+.entry-summary {
+
+}
+

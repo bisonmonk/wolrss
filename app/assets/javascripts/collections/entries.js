@@ -1,5 +1,5 @@
 WellFed.Collections.Entries = Backbone.Collection.extend({
-  model: WellFed.Models.Entries,
+  model: WellFed.Models.Entry,
   
   initialize: function(models, options) {
     this.feed = options.feed;

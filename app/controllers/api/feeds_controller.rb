@@ -5,8 +5,9 @@ module Api
     
     def index
       @feeds = Feed.includes(:entries).all
-      
+      render :index
       # format.json { sleep(2); render :json => @feeds.to_json(include: :entries) }
+      #render :json => @feeds.to_json(include: :entries)
     end
     
     def show

@@ -8,13 +8,14 @@ WellFed.Views.FeedShow = Backbone.View.extend({
   },
   
   render: function() {
-    var renderedableContent = this.template({
+    var renderableContent = this.template({
       feed: this.model,
     });
+    
     this.$el.html(renderableContent);
     
     var entriesView = new WellFed.Views.EntriesView({
-      collection: this.model.entries();
+      collection: this.model.entries()
     });
     
     this.$('#entries').html(entriesView.render().$el);

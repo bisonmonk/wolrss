@@ -1,15 +1,14 @@
 WellFed.Routers.Router = Backbone.Router.extend({
   routes: {
-    "feeds/:id", "feedShow"
+    "feeds/:id": "feedShow"
   },
   
-  feedShow: function() {
+  feedShow: function(id) {
     var feed = WellFed.Collections.feeds.getOrFetch(id);
     
     var showView = new WellFed.Views.FeedShow({
       model: feed
     });
-    
     this._swapView(showView)
   },
   
@@ -18,6 +17,6 @@ WellFed.Routers.Router = Backbone.Router.extend({
       this.currentView.remove();
     }
     this.currentView = view;
-    $("content").html(this.currentView.render().$el);
+    $("#content").html(this.currentView.render().$el);
   }
 });

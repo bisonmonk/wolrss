@@ -1,7 +1,7 @@
 load 'opengraph.rb'
 #http://rocky-atoll-7262.herokuapp.com/
 class Feed < ActiveRecord::Base
-  validates :title, :url, presence: true
+  #validates :title, :url, presence: true
   
   has_many :entries, dependent: :destroy
   has_many :user_feeds
