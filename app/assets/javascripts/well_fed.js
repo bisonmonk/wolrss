@@ -4,7 +4,14 @@ window.WellFed = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    //Will probably change to sources later
+    WellFed.Collections.feeds = new WellFed.Collections.Feeds();
+    WellFed.Collections.feeds.fetch({
+      success: function() {
+        new WellFed.Routers.Router();
+        Backbone.history.start();
+      }
+    });
   }
 };
 

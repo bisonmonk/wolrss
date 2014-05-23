@@ -4,10 +4,20 @@ WellFed.Routers.Router = Backbone.Router.extend({
   },
   
   feedShow: function() {
+    var feed = WellFed.Collections.feeds.getOrFetch(id);
     
+    var showView = new WellFed.Views.FeedShow({
+      model: feed
+    });
+    
+    this._swapView(showView)
   },
   
-  _swapView: function() {
-    
+  _swapView: function(view) {
+    if (this.currentView) {
+      this.currentView.remove();
+    }
+    this.currentView = view;
+    $("content").html(this.currentView.render().$el);
   }
 });
