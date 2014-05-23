@@ -6,13 +6,15 @@
 }
 
 .glyphicon {
-  margin-right: 15px;
+  margin-right: 17px;
+  font-size: 1.2em;
   color: #FFFFFF;
+  letter-spacing: 0.4em;
 }
 
 .glyphicon:hover {
  transition: color 0.5s ease;
- color: #c2c2c2;
+ color: #ff7243;
 }
 
 .feed-info {
@@ -42,4 +44,9 @@
   position: fixed;
   z-index: 1;
   width: 100%;
+}
+
+#navigation:hover {
+  transition: background-color 0.5s ease;
+  background-color: #2c2c2c;
 }

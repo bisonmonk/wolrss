@@ -3,10 +3,6 @@ WellFed.Views.EntryView = Backbone.View.extend({
   
   template: JST["entries/show"],
   
-  events: {
-    
-  },
-  
   render: function() {
     var content = this.template({
       entry: this.model

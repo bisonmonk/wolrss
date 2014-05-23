@@ -1,10 +1,23 @@
-WellFed.Views.FeedShow = Backbone.View.extend({
+WellFed.Views.FeedShow = Backbone.CompositeView.extend({
   className: "feed",
   
   template: JST["feeds/show"],
   
-  events: {
+  renderNav: function() {
+    var navView = new WellFed.Views.NavView({
+      model: this.model
+    });
     
+    $("#navigation").html(navView.render().$el);
+  },
+  
+  renderEntries: function() {
+    this.model.entries().each(function(entry) {
+      var entryView = new WellFed.Views.EntryView({
+        model: entry
+      });
+      this.addSubView("#entries", entryView.render());
+    }, this);
   },
   
   render: function() {
@@ -14,11 +27,10 @@ WellFed.Views.FeedShow = Backbone.View.extend({
     
     this.$el.html(content);
     
-    var entriesView = new WellFed.Views.EntriesView({
-      collection: this.model.entries()
-    });
+    //add nav bar to top
+    this.renderNav();
     
-    this.$('#entries').html(entriesView.render().$el);
+    this.renderEntries();
     
     return this;
   }

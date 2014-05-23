@@ -1,11 +1,15 @@
-<div class="bookmark">
-  <span class="glyphicon glyphicon-bookmark"></span>
-</div>
-<li class="entry">
-  <div class="entry-title">
-    <%= entry.escape("title") %>
+<a href="<%= entry.escape("url") %>" target="_blank">
+  <div class="entry-wrapper">
+    <div class="bookmark">
+      <span class="glyphicon glyphicon-bookmark"></span>
+    </div>
+    <li class="entry">
+      <div class="entry-title">
+        <%= entry.escape("title") %>
+      </div>
+      <!-- <div class="entry-summary">
+        <%= entry.escape("summary") %>
+      </div> -->
+    </li>
   </div>
-  <!-- <div class="entry-summary">
-    <%= entry.escape("summary") %>
-  </div> -->
-</li>
+</a>

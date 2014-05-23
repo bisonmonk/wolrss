@@ -4,10 +4,34 @@
 
 #entries {
   overflow: hidden;
+  margin-left: -20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #5a5a5a;
 }
 
 #entries > ul {
   list-style-type: none;
+}
+
+#entries a {
+  color: #FFFFFF;
+}
+
+.entry-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: background-color 0.5s ease;
+  background-color:rgba(0,0,0,0.28);
+}
+
+.entry-wrapper:hover {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color: rgba(0,0,0,0.05);
+  //transition: color 0.5s ease;
+  color: rgba(0,0,0,0.0);
+  cursor: pointer;
+  cursor: hand;
 }
 
 .entry {
@@ -15,17 +39,17 @@
 }
 
 body {
-  background-color: #1A1919;
+  background-color: #242323;
 }
 
 .entry-title {
-  margin-top: 10px;
-  margin-left: -6px;
-  font-size: 15px;
+  margin-top: 8px;
+  margin-left: 6px;
+  font-size: 16px;
   line-height: 125%;
   letter-spacing: 0.005em;
   width: 50%;
-  background-color:rgba(0,0,0,0.2);
+  //background-color:rgba(0,0,0,0.2);
   //border-radius: 2px;
   padding: 5px;
 }
@@ -46,6 +70,8 @@ body {
 }
 
 .entry-item {
+  padding-left: 0px;
+  padding-right: 0px;
   background-size: 450px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -55,14 +81,14 @@ body {
   font-family: 'Roboto';
   font-weight: 200;
 //  text-shadow: 0 0 9em black;
-  border: 0.5px solid #FFFFFF;
+  border-top: 1px solid #242323;
 }
 
 .entry-item:hover li div {
-  transition: background-color 0.5s ease;
-  transition: color 0.5s ease;
-  color: rgba(0,0,0,0.0);
-  background-color: rgba(0,0,0,0.0);
+//  transition: background-color 0.5s ease;
+//  transition: color 0.5s ease;
+//  color: rgba(0,0,0,0.0);
+//  background-color: rgba(0,0,0,0.0);
 }
 
 .bookmark {
@@ -73,7 +99,7 @@ span.glyphicon-bookmark {
   color: #eb4109;
   font-size: 2em;
   margin-right: -1px;
-  margin-top: -1px;
+  margin-top: -0.5px;
 }
 
 span.glyphicon-bookmark:hover {

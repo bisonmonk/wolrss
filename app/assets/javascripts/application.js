@@ -19,6 +19,7 @@
 //= require underscore
 //= require backbone
 //= require well_fed
+//= require composite
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
