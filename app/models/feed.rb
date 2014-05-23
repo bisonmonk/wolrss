@@ -40,7 +40,7 @@ class Feed < ActiveRecord::Base
     #if open graph object exists / is not false
     if og
       new_entry.image = og.image
-      new_entry.summary = og.description
+      #new_entry.summary = og.description
     else
       #set attrs to shitty defaults
       new_entry.image = entry.image || Feed.find_image(entry.summary)
