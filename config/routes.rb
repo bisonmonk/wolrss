@@ -5,6 +5,14 @@ WellFed::Application.routes.draw do
   resources :users, only: [:new, :create, :destroy]
   
   namespace :api, defaults: {format: :json} do 
+    resources :categories, only: [:index]
+    
+    resources :categories, only: [:show]
+    
+    # resources :categories, only: [:show, :create] do
+    #   resources :feeds, only: [:index, :create, :show]
+    # end
+    
     resources :feeds, only: [:index, :show, :create] do
       resources :entries, only: [:index, :show]
     end
