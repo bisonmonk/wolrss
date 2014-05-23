@@ -17,8 +17,8 @@ body {
 .entry-title {
   margin-top: 10px;
   margin-left: -6px;
-  font-size: 19px;
-  width: 42%;
+  font-size: 16.6px;
+  width: 45%;
   background-color:rgba(0,0,0,0.24);
   //border-radius: 2px;
   padding: 5px;
@@ -40,19 +40,37 @@ body {
 }
 
 .entry-item {
-  background-size: 500px;
+  background-size: 450px;
   background-repeat: no-repeat;
+  background-position: center center;
   height: 230px;
-  width: 450px;
+  width: 300px;
   color: #FFFFFF;
   font-family: 'News Cycle', sans-serif;
   border: 1px solid #FFFFFF;
+}
+
+.entry-item:hover li div {
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
+  color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.0);
+}
+
+.bookmark {
+  float: right;
+}
+
+span.glyphicon-bookmark {
+  font-size: 2em;
+  margin-right: -18px;
+  margin-top: -1px;
 }
 
 .entry-item {}
 
 
 .entry-summary {
-
+  letter-spacing: 0.4px;
 }
 

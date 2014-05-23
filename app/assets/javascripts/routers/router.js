@@ -6,6 +6,12 @@ WellFed.Routers.Router = Backbone.Router.extend({
   feedShow: function(id) {
     var feed = WellFed.Collections.feeds.getOrFetch(id);
     
+    var navView = new WellFed.Views.NavView({
+      model: feed
+    });
+    
+    $("#navigation").html(navView.render().$el);
+    
     var showView = new WellFed.Views.FeedShow({
       model: feed
     });

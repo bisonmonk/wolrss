@@ -1,0 +1,45 @@
+.nav-actions {
+ float: right; 
+ padding-top: 15px;
+ padding-bottom: 15px;
+ margin-right: 25px;
+}
+
+.glyphicon {
+  margin-right: 15px;
+  color: #FFFFFF;
+}
+
+.glyphicon:hover {
+ transition: color 0.5s ease;
+ color: #c2c2c2;
+}
+
+//.feed-title .feed-count {
+//  display: inline-block;
+//  float: left;
+//}
+
+.feed-info {
+  font-family: 'News Cycle';
+  padding-top: 15px;
+  margin-left: 15px;
+}
+
+.feed-info > span {
+  margin-right: 10px;
+}
+
+.feed-info > div.inline {
+  display: inline;
+  float: left;
+}
+
+#navigation {
+  color: #FFFFFF;
+  background-color: #252525;
+  border-bottom: 1px solid #323232;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
