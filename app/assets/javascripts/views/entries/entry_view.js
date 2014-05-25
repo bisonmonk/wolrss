@@ -1,5 +1,5 @@
 WellFed.Views.EntryView = Backbone.View.extend({
-  className: 'entry-item col-xs-6',
+  className: 'entry-item col-xs-4',
   
   template: JST["entries/show"],
   

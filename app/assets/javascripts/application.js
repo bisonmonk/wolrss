@@ -20,6 +20,7 @@
 //= require backbone
 //= require well_fed
 //= require composite
+//= require moment.min
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

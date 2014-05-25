@@ -9,6 +9,26 @@ class Feed < ActiveRecord::Base
   
   belongs_to :category
   
+  def reload
+    feed_data = Feedjira::Feed.fetch_and_parse(self.url)
+    
+    if feed_data.is_a?(Fixnum)
+      return nil
+    end
+    
+    # fail
+    self.updated_at = Time.now
+    self.save!
+    
+    existing_entry_urls = Entry.pluck(:url).sort
+    
+    feed_data.entries.each do |entry_data|
+      unless existing_entry_urls.include?(entry_data.url)
+        self.add_entry!(entry_data, self.id)
+      end
+    end
+  end
+  
   def self.find_or_create_by_url(url)
     feed = Feed.find_by_url(url)
     return feed if !feed.nil?
@@ -24,13 +44,17 @@ class Feed < ActiveRecord::Base
     feed.save
     
     0.upto(feed_data.entries.length - 1) do |index|
-      Feed.add_entry!(feed_data.entries[index], feed.id)
+      feed.add_entry!(feed_data.entries[index], feed.id)
     end
     
     return feed
   end
   
-  def self.add_entry!(entry, feed_id)
+  def self.add_entry(entry, feed_id)
+    add_entry!(entry, feed_id)
+  end
+  
+  def add_entry!(entry, feed_id)
     new_entry = Entry.new()
     new_entry.url = entry.url
     new_entry.title = entry.title
@@ -42,10 +66,10 @@ class Feed < ActiveRecord::Base
     #if open graph object exists / is not false
     if og
       new_entry.image = og.image
-      #new_entry.summary = og.description
+      new_entry.summary = og.description
     else
       #set attrs to shitty defaults
-      new_entry.image = entry.image || Feed.find_image(entry.summary)
+      new_entry.image = entry.image || find_image(entry.summary)
       new_entry.summary = entry.summary
     end
     
@@ -53,7 +77,7 @@ class Feed < ActiveRecord::Base
   end
   
   #finds an image url if it exists and returns it
-  def self.find_image(data)
+  def find_image(data)
     tags = Nokogiri::HTML(data)
     imgs = tags.css('img').map { |i| i['src'] }
     imgs.each do |img|

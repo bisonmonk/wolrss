@@ -1,6 +1,10 @@
 WellFed.Collections.Entries = Backbone.Collection.extend({
   model: WellFed.Models.Entry,
   
+  comparator: function(entry) {
+    return -moment(entry.get("published_at"))._d;
+  },
+  
   initialize: function(models, options) {
     this.feed = options.feed;
   },

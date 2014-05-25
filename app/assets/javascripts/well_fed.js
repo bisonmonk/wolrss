@@ -8,6 +8,7 @@ window.WellFed = {
     
     
     WellFed.Collections.feeds = new WellFed.Collections.Feeds();
+    WellFed.Collections.categories = new WellFed.Collections.Categories();
     
     WellFed.Collections.feeds.fetch({
       success: function() {

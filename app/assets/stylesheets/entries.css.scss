@@ -27,8 +27,8 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  transition: background-color 0.5s ease;
-  background-color:rgba(0,0,0,0.28);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color:rgba(0,0,0,0.40);
 }
 
 .entry-wrapper:hover {
@@ -38,8 +38,34 @@
   color: rgba(0,0,0,0.0);
 }
 
-.entry {
-  
+//.entry-item-wrapper {
+//  of
+//}
+
+.entry-item-wrapper .summary {
+  color: black;
+  position: relative;
+  background-color: #FFFFFF;
+  opacity: 0;
+  display: block;
+}
+
+.entry-item-wrapper:hover .summary {
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
+  top: 300px;
+  float: both;
+  z-index: 1;
+  height: auto;
+  padding: 5px;
+}
+
+.summary-title {
+  font-size: 15px;
+}
+
+.summary-description {
+  font-size: 14px;
 }
 
 body {
@@ -49,12 +75,10 @@ body {
 .entry-title {
   margin-top: 8px;
   margin-left: 6px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 125%;
   letter-spacing: 0.005em;
-  width: 50%;
-  //background-color:rgba(0,0,0,0.2);
-  //border-radius: 2px;
+  width: 60%;
   padding: 5px;
 }
 
@@ -76,7 +100,7 @@ body {
 .entry-item {
   padding-left: 0px;
   padding-right: 0px;
-  background-size: 580px;
+  background-size: 780px;
   background-repeat: no-repeat;
   background-position: center center;
   //height: 230px;

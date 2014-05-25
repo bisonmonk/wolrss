@@ -5,6 +5,11 @@ module Api
     
     def index
       @feeds = Feed.includes(:entries).all
+      
+      @feeds.each do |feed|
+        feed.reload if Time.now - feed.updated_at > 300.seconds
+      end
+      
       render :index
       # format.json { sleep(2); render :json => @feeds.to_json(include: :entries) }
       #render :json => @feeds.to_json(include: :entries)
@@ -13,6 +18,9 @@ module Api
     def show
       @feed = Feed.find(params[:id])
       
+      # fail
+      
+      @feed.reload if Time.now - @feed.updated_at > 300.seconds
       render partial: "api/feeds/feed", locals: { feed: @feed }
     end
     
