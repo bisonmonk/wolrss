@@ -13,7 +13,6 @@ WellFed.Views.CategoriesView = Backbone.CompositeView.extend({
       var view = new WellFed.Views.CategoryView({
         model: category
       });
-      //debugger;
       this.addSubView('#categories', view.render());
     }, this);
   },
