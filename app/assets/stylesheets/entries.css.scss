@@ -37,7 +37,7 @@ body {
   width: 100%;
   position: absolute;
   transition: background-color 0.5s ease, color 0.5s ease;
-  background-color:rgba(0,0,0,0.40);
+  background-color:rgba(0,0,0,0.38);
 }
 
 .entry-wrapper:hover {
@@ -121,12 +121,28 @@ body {
   float: right;
 }
 
+//.bookmark {
+//  color: #0ABAFA;
+//  font-size: 2em;
+//  margin-right: -1px;
+//  margin-top: -0.5px;
+//  text-shadow: 0px 0 #0485b4, 0 3px #0485b4, 0px 0 #0485b4, 0 3px #0485b4;
+//}
+//
+//.bookmark:hover {
+//  color: #0a92fa;
+//  text-shadow: 0px 0 #036082, 0 3px #036082, 0px 0 #036082, 0 3px #036082;
+//}
+
 span.glyphicon-bookmark {
+  z-index: 1;
   color: #0ABAFA;
   font-size: 2em;
   margin-right: -1px;
   margin-top: -0.5px;
   text-shadow: 0px 0 #0485b4, 0 3px #0485b4, 0px 0 #0485b4, 0 3px #0485b4;
+  cursor: hand;
+  cursor: pointer;
 }
 
 span.glyphicon-bookmark:hover {

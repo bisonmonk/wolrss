@@ -41,6 +41,7 @@ Gizmodo:http://feeds.gawker.com/gizmodo/full
 Ars Technica:http://feeds.arstechnica.com/arstechnica/features
 Lifehacker:http://lifehacker.com/rss
 Engadget:http://www.engadget.com/rss.xml
+Digital Trends:http://www.digitaltrends.com/feed/
 
 ###News
 The New York Times:http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml
@@ -66,6 +67,8 @@ Rock, Paper, Shotgun:
 
 ###Design
 Abduzeedo:http://feeds.feedburner.com/abduzeedo
+
+
 
 
 ##Extract image tags from html

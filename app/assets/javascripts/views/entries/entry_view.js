@@ -3,6 +3,14 @@ WellFed.Views.EntryView = Backbone.View.extend({
   
   template: JST["entries/show"],
   
+  events: {
+    "click span.glyphicon-bookmark":"bookmarkEntry"
+  },
+  
+  bookmarkEntry: function() {
+    alert("clicked a bookmark");
+  },
+  
   render: function() {
     var content = this.template({
       entry: this.model

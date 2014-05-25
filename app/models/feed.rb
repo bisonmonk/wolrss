@@ -69,7 +69,8 @@ class Feed < ActiveRecord::Base
       new_entry.summary = og.description
     else
       #set attrs to shitty defaults
-      new_entry.image = entry.image || find_image(entry.summary)
+      new_entry.image =
+        (entry.respond_to?(:image) && entry.image) || find_image(entry.summary)
       new_entry.summary = entry.summary
     end
     

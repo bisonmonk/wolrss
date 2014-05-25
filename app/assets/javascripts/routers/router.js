@@ -17,13 +17,16 @@ WellFed.Routers.Router = Backbone.Router.extend({
   },
   
   categoryShow: function(id) {
-    var feeds = WellFed.Collections.categories.getOrFetch(id);
-    
-    var categoryView = new WellFed.Views.CategoryView({
-      
+    //var
+    var category = WellFed.Collections.categories.getOrFetch(id);
+    //debugger;
+    var sourcesView = new WellFed.Views.SourcesView({
+      model: category
     });
     
-    this._swapView(categoryView);
+    //WellFed.Collections.categories.fetch();
+    
+    this._swapView(sourcesView);
   },
   
   feedShow: function(id) {

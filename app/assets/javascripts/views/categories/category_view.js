@@ -8,7 +8,7 @@ WellFed.Views.CategoryView = Backbone.View.extend({
   },
   
   navigateToSources: function() {
-    debugger;
+    //debugger;
     Backbone.history.navigate("/categories/" + this.model.id, true);
     //alert("would navigate if i could");
   },

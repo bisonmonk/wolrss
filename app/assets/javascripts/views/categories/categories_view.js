@@ -6,9 +6,6 @@ WellFed.Views.CategoriesView = Backbone.CompositeView.extend({
   template: JST['categories/index'],
   
   renderCategories: function() {
-    
-    var that = this;
-    
     this.collection.each(function(category) {
       var view = new WellFed.Views.CategoryView({
         model: category
