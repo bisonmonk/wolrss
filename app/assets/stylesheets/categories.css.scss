@@ -3,5 +3,57 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #categories {
+  overflow: hidden;
+  font-size: 28px;
+  font-weight: 400;
   color: #FFFFFF;
+  margin-top: 8px;
+  margin-left: 6px;
+
+  line-height: 125%;
+  letter-spacing: 0.005em;
+  width: 60%;
+  border-left: 1px solid #049BD1;
+}
+
+.category-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color:rgba(0,0,0,0.15);
+  cursor: hand;
+  cursor: pointer;
+}
+
+//.category-wrapper:hover {
+//  cursor: hand;
+//  cursor: pointer;
+//}
+
+.category-wrapper:hover {
+  transition: background-color 0.5s ease;
+  background-color: rgba(0,0,0,0.00);
+  //transition: color 0.5s ease;
+  //color: rgba(0,0,0,0.0);
+}
+
+.category-item {
+  padding-left: 0px;
+  padding-right: 0px;
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  
+  height: 280px;
+  width: 280px;
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 200;
+  
+  border-bottom: 1px solid #049BD1;
+  border-right: 1px solid #049BD1;
+  
+  list-style-type: none;
 }

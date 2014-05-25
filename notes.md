@@ -64,6 +64,9 @@ Joystiq:http://www.joystiq.com/rss.xml
 Polygon:
 Rock, Paper, Shotgun:
 
+###Design
+Abduzeedo:http://feeds.feedburner.com/abduzeedo
+
 
 ##Extract image tags from html
 ###http://stackoverflow.com/questions/5813446/extract-img-tags-in-ruby
