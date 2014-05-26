@@ -17,6 +17,9 @@ WellFed.Views.EntryView = Backbone.View.extend({
     });
     
     this.$el.html(content);
+    
+    //debugger;
+    
     this.$el.css('background-image', 'url(' + this.model.attributes.image + ')');
     
     return this;

@@ -1,5 +1,9 @@
 module Api
   class FeedsController < ApplicationController
+    def titles
+      @feeds = Feed.all
+    end
+    
     def new
     end
     

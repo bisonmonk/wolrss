@@ -1,6 +1,8 @@
 WellFed::Application.routes.draw do
   root to: "static_pages#root"
   
+  get "api/feeds/titles", to: "api/feeds#titles"
+  
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :destroy]
   
@@ -13,7 +15,7 @@ WellFed::Application.routes.draw do
     #   resources :feeds, only: [:index, :create, :show]
     # end
     
-    resources :feeds, only: [:index, :show, :create] do
+    resources :feeds, only: [:index, :show, :create, :titles] do
       resources :entries, only: [:index, :show]
     end
   end

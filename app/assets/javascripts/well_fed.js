@@ -8,6 +8,9 @@ window.WellFed = {
     
     
     WellFed.Collections.feeds = new WellFed.Collections.Feeds();
+    
+    WellFed.Collections.titles = new WellFed.Collections.Titles();
+    
     WellFed.Collections.categories = new WellFed.Collections.Categories();
     
     WellFed.Collections.feeds.fetch({

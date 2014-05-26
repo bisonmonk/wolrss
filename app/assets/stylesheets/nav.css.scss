@@ -17,6 +17,20 @@
  color: #0ABAFA;
 }
 
+#search {
+  font-family: 'Roboto';
+  color: black;
+  float: right;
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+#search-input input {
+  border: 1px solid black;
+  box-shadow: inset 0 0 3px grey;
+  padding-left: 3px;
+}
+
 .feed-info {
   font-family: 'Roboto';
   padding-top: 15px;
