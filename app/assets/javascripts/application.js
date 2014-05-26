@@ -21,6 +21,7 @@
 //= require well_fed
 //= require composite
 //= require moment.min
+//= require typeahead.bundle
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

@@ -16,8 +16,13 @@ WellFed.Views.FeedView = Backbone.CompositeView.extend({
     $("#navigation").html(navView.render().$el);
   },
   
+  renderLeftNav: function() {
+    var leftNavView = new WellFed.Views.LeftBar({});
+    
+    $("#left-navigation").html(leftNavView.render().$el);
+  },
+  
   renderEntries: function() {
-    debugger;
     this.model.entries().each(function(entry) {
       var entryView = new WellFed.Views.EntryView({
         model: entry
@@ -35,6 +40,7 @@ WellFed.Views.FeedView = Backbone.CompositeView.extend({
     
     //add nav bar to top
     this.renderNav();
+    this.renderLeftNav();
     
     this.renderEntries();
     
