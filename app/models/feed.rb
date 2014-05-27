@@ -29,7 +29,7 @@ class Feed < ActiveRecord::Base
     end
   end
   
-  def self.find_or_create_by_url(url)
+  def self.find_or_create_by_url(url, image_url, cat_id)
     feed = Feed.find_by_url(url)
     return feed if !feed.nil?
     
@@ -39,7 +39,10 @@ class Feed < ActiveRecord::Base
       return nil
     end
 
-    feed = Feed.new(title: feed_data.title, url: feed_data.feed_url)
+    feed = Feed.new(title: feed_data.title, 
+                    url: feed_data.feed_url,
+                    image: image_url,
+                    category_id: cat_id)
     
     feed.save
     
@@ -70,7 +73,9 @@ class Feed < ActiveRecord::Base
     else
       #set attrs to shitty defaults
       new_entry.image =
-        (entry.respond_to?(:image) && entry.image) || find_image(entry.summary)
+        (entry.respond_to?(:image) && entry.image) || Feed.find(feed_id).image
+        
+        # || find_image(entry.summary)
       new_entry.summary = entry.summary
     end
     

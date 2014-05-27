@@ -35,21 +35,24 @@ end
 TechCrunch:https://pbs.twimg.com/profile_images/469171480832380928/rkZR1jIh.png
 Verge:https://pbs.twimg.com/profile_images/1450127603/TheVerge_Badge_Color1_400x400.png
 Mashable:https://pbs.twimg.com/profile_images/3690637553/5c348fee8afbcefa1978004a864a51ce_400x400.png
-
 Wired:https://pbs.twimg.com/profile_images/378800000703426078/f0e0491c473589ad484d976ca45d712b_400x400.png
 Gizmodo:https://pbs.twimg.com/profile_images/1860214036/Gizmodo-Twitter-Avatar.jpeg
 Ars Technica:https://pbs.twimg.com/profile_images/2215576731/ars-logo_400x400.png
 Lifehacker:https://pbs.twimg.com/profile_images/1861146796/Twitter_-_Avatar.png
 Engadget:https://pbs.twimg.com/profile_images/458692107188727808/pp_QyGUm.png
 Digital Trends:https://pbs.twimg.com/profile_images/3705803887/0ca54f222527b7c5efc0a30e9a367729.png
+ReadWrite:https://pbs.twimg.com/profile_images/2750899250/294d9c7b13ba263c7c3f634a487d468d.jpeg
+Hacker News:https://pbs.twimg.com/profile_images/712101873/Y_Combinator_Logo_400.gif
 
 ###news
 NYT:https://pbs.twimg.com/profile_images/2044921128/finals.png
 NPR:https://pbs.twimg.com/profile_images/1796148436/nprnews_icon.jpg
+Google News:https://twitter.com/googlenews
 BBC:https://pbs.twimg.com/profile_images/662708106/bbc.png
-CNN:hhttps://pbs.twimg.com/profile_images/454309589777780736/5mfxlzAs.jpeg
+CNN:https://pbs.twimg.com/profile_images/454309589777780736/5mfxlzAs.jpeg
 Reuters:https://pbs.twimg.com/profile_images/3379693153/1008914c0ae75c9efb5f9c0161fce9a2.png
 VICE:https://pbs.twimg.com/profile_images/3060284671/15e9fc92457c5b7633b5378a77b80c26.jpeg
+The Guardian:https://pbs.twimg.com/profile_images/2814613165/f3c9e3989acac29769ce01b920f526bb.png
 
 ###business
 Business Insider:https://pbs.twimg.com/profile_images/3381256262/28c6bc5924fb01f8ba4071e8939f85d7.png
@@ -67,6 +70,8 @@ Financial Times:https://pbs.twimg.com/profile_images/466976697120587776/R0Exfy1i
 CNN Money:https://pbs.twimg.com/profile_images/1344702851/fb_cnnmoney_new_logo_avatar.jpg
 WSJ Markets:https://pbs.twimg.com/profile_images/3506611410/67f4571793d00237fc10ca0df7811f09.jpeg
 The Economist:https://pbs.twimg.com/profile_images/461499742950678528/2JnpHjUo.png
+Freakonomics:https://pbs.twimg.com/profile_images/464517238075060225/g295Q3ey.png
+
 
 ###gaming
 Kotaku:https://pbs.twimg.com/profile_images/378800000483599841/b1e511e53161fb612a5bf00430f9687a.png
@@ -128,14 +133,18 @@ Ars Technica:http://feeds.arstechnica.com/arstechnica/features
 Lifehacker:http://lifehacker.com/rss
 Engadget:http://www.engadget.com/rss.xml
 Digital Trends:http://www.digitaltrends.com/feed/
+ReadWrite:http://www.readwriteweb.com/rss.xml
+Hacker News:http://feeds.feedburner.com/hacker-news-feed-50?format=xml
 
 ###News
 The New York Times:http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml
 NPR:http://www.npr.org/rss/rss.php?id=1001
+Google News:http://news.google.com/?output=rss
 BBC:http://feeds.bbci.co.uk/news/rss.xml
 CNN:http://rss.cnn.com/rss/cnn_topstories.rss
 Reuters:http://www.reuters.com/rssFeed/topNews
 VICE:http://www.vice.com/rss
+The Guardian:http://www.theguardian.com/uk/rss
 
 ###Business
 Business Insider:http://feeds2.feedburner.com/businessinsider
@@ -153,6 +162,7 @@ Financial Times:http://www.ft.com/rss/home/us
 CNN Money:http://rss.cnn.com/rss/money_topstories.rss
 WSJ Markets:http://online.wsj.com/xml/rss/3_7031.xml
 The Economist:http://www.economist.com/feeds/print-sections/79/finance-and-economics.xml
+Freakonomics:http://freakonomics.com/feed/
 
 
 ####Gaming
@@ -217,6 +227,10 @@ Chicago Tribune Sports:http://feeds.feedburner.com/chicagotribune/sports
 require 'nokogiri' # gem install nokogiri
 doc = Nokogiri::HTML( my_html_string )
 img_srcs = doc.css('img').map{ |i| i['src'] } # Array of strings
+
+##Extract article from html
+Most content containers include words entry or article
+Condition: if container includes words or article and only contians <p> or <img> tags then scrape it
 
 
 

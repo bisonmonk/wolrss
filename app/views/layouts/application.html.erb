@@ -11,7 +11,10 @@
 <body>
   <nav id="navigation"></nav>
   <div id="left-navigation"></div>
-
+  <script type="text/javascript">
+  var currentUserId = <%= current_user.try(:id) || 'undefined' %>
+  </script>
+  
   <%= yield %>
 
 </body>

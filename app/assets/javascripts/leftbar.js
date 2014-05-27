@@ -1,10 +1,10 @@
 WellFed.Views.LeftBar = Backbone.View.extend({
-  className: "left-bar-wrapper",
+  // className: "left-bar-wrapper",
   
-  template: JST["leftbar"],
+  template: JST["leftnav"],
   
   render: function() {
-    debugger;
+    //debugger;
     var content = this.template({});
     
     this.$el.html(content);

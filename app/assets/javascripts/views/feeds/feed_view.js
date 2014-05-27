@@ -17,7 +17,9 @@ WellFed.Views.FeedView = Backbone.CompositeView.extend({
   },
   
   renderLeftNav: function() {
-    var leftNavView = new WellFed.Views.LeftBar({});
+    var leftNavView = new WellFed.Views.LeftBar({
+      model: this.model
+    });
     
     $("#left-navigation").html(leftNavView.render().$el);
   },

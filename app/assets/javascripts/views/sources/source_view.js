@@ -19,7 +19,7 @@ WellFed.Views.SourceView = Backbone.View.extend({
     });
     
     this.$el.html(content);
-    this.$el.css('background-image', 'url(' + sample_article.attributes.image + ')');
+    this.$el.css('background-image', 'url(' + this.model.attributes.image + ')');
     
     return this;
   }

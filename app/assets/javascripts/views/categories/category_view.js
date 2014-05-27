@@ -15,17 +15,16 @@ WellFed.Views.CategoryView = Backbone.View.extend({
   
   render: function() {
     first_feed = this.model.feeds().models[0];
-    sample_article = first_feed.entries().models[0];
+    //sample_article = first_feed.entries().models[0];
 
     var content = this.template({
-      category: this.model,
-      article: sample_article
+      category: this.model
     });
     
     
     
     this.$el.html(content);
-    this.$el.css('background-image', 'url(' + sample_article.attributes.image + ')');
+    this.$el.css('background-image', 'url(' + this.model.attributes.image + ')');
     
     return this;
   }

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  # def valid_user?
+  #   signed_in?
+  # end
+  
   def new
     @user = User.new
   end

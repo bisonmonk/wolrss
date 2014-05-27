@@ -8,17 +8,27 @@ WellFed.Views.EntryView = Backbone.View.extend({
   },
   
   bookmarkEntry: function() {
-    alert("clicked a bookmark");
+    //alert("clicked a bookmark");
+    if (currentUserId !== 'undefined') {
+      //debugger;
+      alert("clicked a bookmark");
+      var data = {
+        title: this.model.attributes.id,
+        feed_id: this.model.attributes.feed_id,
+        user_id: currentUserId
+      }  
+    } else {
+      alert("show modal to sign up user")
+    }
   },
   
   render: function() {
+    //debugger;
     var content = this.template({
-      entry: this.model
+      entry: this.model.attributes
     });
     
     this.$el.html(content);
-    
-    //debugger;
     
     this.$el.css('background-image', 'url(' + this.model.attributes.image + ')');
     

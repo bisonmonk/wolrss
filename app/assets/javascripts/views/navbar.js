@@ -1,25 +1,17 @@
 WellFed.Views.NavView = Backbone.View.extend({
   template: JST["navbar"],
   
-  // events: {
-  //   "keypress #search-input": "findItem"
-  // },
-  // // 
-  // // initialize: function() {
-  // //   //this.listenTo(this.collection, )
-  // // },
-  // 
-  // findItem: function(event) {
-  //   if (event.which === 13) {
-  //     event.preventDefault();
-  //     //debugger;
-  //     alert("woulda searched for something");
-  //   }
-  // },
-  
   render: function() {
+    var title = this.model.attributes.title;
+    var count = "";
+    if (!!this.model.entries) {
+      count = this.model.entries().models.length + " articles";
+    }
+        
     var content = this.template({
-      feed: this.model
+      title: title,
+      count: count
+      //feed: this.model
     });
     
     var locals = [];
@@ -52,7 +44,7 @@ WellFed.Views.NavView = Backbone.View.extend({
       displayKey: 'title',
       source: feedTitles.ttAdapter(),
       templates: {
-        header: '<div class="search-title"><strong>Feeds</strong></div>'
+        header: '<div class="search-title">Feeds</div>'
       }
     },
     {
@@ -68,8 +60,6 @@ WellFed.Views.NavView = Backbone.View.extend({
         Backbone.history.navigate("/feeds/" + datum.id, true);
       }
     });
-    
-    //debugger;
     
     return this;
   }

@@ -1,18 +1,13 @@
-#sources {
-  overflow: hidden;
-  font-size: 28px;
+.sources {
   font-weight: 400;
   color: #FFFFFF;
-  margin-top: 8px;
-  margin-left: 6px;
-
   line-height: 125%;
   letter-spacing: 0.005em;
-  width: 60%;
-  border-left: 1px solid #049BD1;
+  padding-top: 50px;
 }
 
 .source-wrapper {
+  font-size: 24px;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -20,6 +15,13 @@
   background-color:rgba(0,0,0,0.15);
   cursor: hand;
   cursor: pointer;
+}
+
+#feeds {
+  overflow: hidden;
+  margin-left: -20px;
+  border-left: 1px solid #049BD1;
+  width: 100%;
 }
 
 //.category-wrapper:hover {
@@ -52,4 +54,15 @@
   border-right: 1px solid #049BD1;
   
   list-style-type: none;
+}
+
+.source-title {
+  margin-top: 8px;
+  margin-left: 6px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 125%;
+  letter-spacing: 0.005em;
+  width: 60%;
+  padding: 5px;
 }
