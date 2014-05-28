@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   
   has_many :user_feeds
   has_many :feeds, through: :user_feeds
+  
+  has_many :user_entries
+  has_many :entries, through: :user_entries
 
   before_validation :ensure_session_token
 

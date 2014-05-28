@@ -1,20 +1,20 @@
-WellFed.Collections.Feeds = Backbone.Collection.extend({
-  model: WellFed.Models.Feed,
+WellFed.Collections.UserFeeds = Backbone.Collection.extend({
+  model: WellFed.Models.UserFeed,
   
-  url: "api/feeds",
+  url: "api/feeds/user_feeds",
   
   getOrFetch: function(id) {
-    var feed = this.get(id);
-    if (feed) {
-      return feed;
+    var userFeed = this.get(id);
+    if (userFeed) {
+      return userFeed;
     } else {
-      feed = new WellFed.Models.Feed({ id: id });
-      feed.fetch({
+      userFeed = new WellFed.Models.UserFeed({ id: id });
+      userFeed.fetch({
         success: function() {
-          WellFed.Collections.feeds.add(feed);
+          WellFed.Collections.userFeeds.add(userFeed);
         }
       });
-      return feed;
+      return userFeed;
     }
   } 
 });

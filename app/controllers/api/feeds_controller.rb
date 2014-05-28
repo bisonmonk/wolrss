@@ -3,6 +3,29 @@ module Api
     def titles
       @feeds = Feed.all
     end
+  
+    def user_feeds
+      if signed_in?
+        @user_feeds = current_user.feeds
+      else
+        render :json => { error: @user_feeds.errors.full_messages }, status: :unprocessable_entity
+      end
+    end
+    
+    def create_user_feed
+      if signed_in?
+        ue = UserFeed.new
+        ue.user_id = params[:user_id]
+        ue.feed_id = params[:feed_id]
+        ue.save
+        if ue.save
+          render json: ue
+          #render :status [200]
+        else
+          render :json => { error: ue.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
+    end
     
     def new
     end
@@ -15,8 +38,6 @@ module Api
       end
       
       render :index
-      # format.json { sleep(2); render :json => @feeds.to_json(include: :entries) }
-      #render :json => @feeds.to_json(include: :entries)
     end
     
     def show
