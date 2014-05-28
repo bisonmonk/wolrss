@@ -2,7 +2,8 @@ WellFed.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "categoriesIndex",
     "categories/:id": "categoryShow",
-    "feeds/:id": "feedShow"
+    "feeds/:id": "feedShow",
+    "feeds/user_feeds": "usersFeedsIndex"
   },
   
   //page with each category listed
@@ -31,6 +32,28 @@ WellFed.Routers.Router = Backbone.Router.extend({
   
   feedShow: function(id) {
     var feed = WellFed.Collections.feeds.getOrFetch(id);
+    
+    var feedView = new WellFed.Views.FeedView({
+      model: feed,
+      collection: WellFed.Collections.titles
+    });
+    
+    WellFed.Collections.titles.fetch();
+    
+    this._swapView(feedView);
+  },
+  
+  userFeedsIndex: function() {
+    var userFeedsView = new WellFed.Views.UserFeedsView({
+      collection: WellFed.Collections.userFeeds
+    });
+    
+    WellFed.Collections.userFeeds.fetch();
+    this._swapView(userFeedsView);
+  },
+  
+  userFeedShow: function(id) {
+    var user_feed = WellFed.Collections.userFeeds.getOrFetch(id);
     
     var feedView = new WellFed.Views.FeedView({
       model: feed,

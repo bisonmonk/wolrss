@@ -14,15 +14,15 @@ module Api
     
     def create_user_feed
       if signed_in?
-        ue = UserFeed.new
-        ue.user_id = params[:user_id]
-        ue.feed_id = params[:feed_id]
-        ue.save
-        if ue.save
-          render json: ue
+        uf = UserFeed.new
+        uf.user_id = params[:user_id]
+        uf.feed_id = params[:feed_id]
+        uf.save
+        if uf.save
+          render json: uf
           #render :status [200]
         else
-          render :json => { error: ue.errors.full_messages }, status: :unprocessable_entity
+          render :json => { error: uf.errors.full_messages }, status: :unprocessable_entity
         end
       end
     end
