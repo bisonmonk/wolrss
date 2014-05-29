@@ -4,7 +4,8 @@ module Api
       if signed_in?
         @user_entries = current_user.entries
       else
-        render :json => { error: @user_entries.errors.full_messages }, status: :unprocessable_entity
+        render status: :no_content
+        #render :json => { error: @user_entries.errors.full_messages }, status: :unprocessable_entity
       end
     end
     

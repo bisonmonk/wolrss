@@ -3,16 +3,35 @@ WellFed.Views.LeftBar = Backbone.View.extend({
   
   template: function() {
     if (currentUserId) {
-      return JST["leftnav"]
+      return JST["leftnav"];
     } else {
-      return JST["guest-leftnav"]
+      return JST["guest-leftnav"];
+      debugger;
+      // $(".content").append(JST["modal"]);
     }
   },
   
   events: {
     "click #home": "goHome",
     "click #articles": "savedArticles",
-    "click #user-feeds": "savedFeeds"
+    "click #user-feeds": "savedFeeds",
+    "click #login": "showModal"
+  },
+  
+  showModal: function() {
+    $("#loginModal").modal({
+      show: true,
+      backdrop: true
+    });
+  },
+  
+  login: function() {
+    var data = {
+      entry_id: this.model.attributes.id,
+      user_id: currentUserId
+    };
+    var userEntry = new WellFed.Models.UserEntry(data);
+    userEntry.save({});
   },
   
   goHome: function() {
@@ -28,10 +47,11 @@ WellFed.Views.LeftBar = Backbone.View.extend({
   },
   
   render: function() {
-    debugger;
     var content = this.template({});
     
     this.$el.html(content);
+    debugger;
+    $(".container").append(JST["modal"]());
     
     return this;
   }
