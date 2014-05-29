@@ -9,6 +9,8 @@ WellFed::Application.routes.draw do
   
   #entries and feeds for a logged in user
   get "api/feeds/user_feeds", to: "api/feeds#user_feeds"
+  get "api/feeds/user_feeds/entries", to: "api/feeds#user_feed_entries"
+  
   get "api/entries/user_entries", to: "api/entries#user_entries"
   
   post "api/entries/create_user_entry", to: "api/entries#create_user_entry"

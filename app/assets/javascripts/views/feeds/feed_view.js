@@ -10,7 +10,11 @@ WellFed.Views.FeedView = Backbone.CompositeView.extend({
   renderNav: function() {
     var navView = new WellFed.Views.NavView({
       model: this.model,
-      collection: this.collection
+      collection: this.collection,
+      entryUrl: "/api/feeds/" + this.model.id + "/entries",
+      feedUrl: "/api/feeds",
+      title: this.model.attributes.title,
+      count: this.model.entries().models.length + " articles"
     });
     
     $("#navigation").html(navView.render().$el);

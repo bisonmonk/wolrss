@@ -1,63 +1,88 @@
 WellFed.Views.NavView = Backbone.View.extend({
+  initialize: function(options) {
+    this.entryUrl = options.entryUrl;
+    this.feedUrl = options.feedUrl;
+    this.title = options.title;
+    this.count = options.count;
+  },
+  
+  events: {
+    "click #to-top": "toTop"
+  },
+  
+  toTop: function() {
+    $('body').animate({'scrollTop': 0}, 500)
+  },
+  
   template: JST["navbar"],
   
+  entryEngine: function() {
+    return new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      limit: 8,
+      prefetch: this.entryUrl
+    });
+  },
+  
+  feedEngine: function() {
+    return new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      limit: 8,
+      prefetch: this.feedUrl
+    });
+  },
+  
   render: function() {
-    var title = this.model.attributes.title;
-    var count = "";
-    if (!!this.model.entries) {
-      count = this.model.entries().models.length + " articles";
-    }
+    //var title = this.model.attributes.title;
+    // var count = "";
+    // if (!!this.model.entries) {
+    //   count = this.model.entries().models.length + " articles";
+    // }
         
     var content = this.template({
-      title: title,
-      count: count
-      //feed: this.model
+      title: this.title,
+      count: this.count
     });
-    
-    var locals = [];
     
     this.$el.html(content);
     
-    var entryTitles = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      limit: 12,
-      prefetch: "/api/feeds/" + this.model.id + "/entries/titles"
-    });
+    var entryTitles = this.entryEngine();
       
-    var feedTitles = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      limit: 12,
-      prefetch: "api/feeds/titles"
-    });
+    var feedTitles = this.feedEngine();
     
     entryTitles.initialize();
     feedTitles.initialize();
-  
+    
     this.$('#search-input .typeahead').typeahead({
-      highlight: true,
-      hint: false
-    },
-    {
-      name: 'feed-titles',
-      displayKey: 'title',
-      source: feedTitles.ttAdapter(),
-      templates: {
-        header: '<div class="search-title">Feeds</div>'
+        highlight: true,
+        hint: false
+      },
+      {
+        name: 'feed-titles',
+        displayKey: 'title',
+        source: feedTitles.ttAdapter(),
+        templates: {
+          header: '<div class="search-title">Feeds</div>'
+        }
+      },
+      {
+        name: 'entry-titles',
+        displayKey: 'title',
+        source: entryTitles.ttAdapter(),  
+        templates: {
+          header: '<div class="search-title">Articles</div>'
+        }
       }
-    },
-    {
-      name: 'entry-titles',
-      displayKey: 'title',
-      source: entryTitles.ttAdapter(),  
-      templates: {
-        header: '<div class="search-title">Articles</div>'
-      }
-    }
-    ).on('typeahead:selected', function(obj, datum) {
+    ).on('typeahead:selected', function(event, datum) {
+      //issue: only returns 112 datums not all of them???
+      //
       if (!datum.feed_id) {
-        Backbone.history.navigate("/feeds/" + datum.id, true);
+        //debugger;
+        Backbone.history.navigate("/feeds/" + datum.id, {trigger: true});
+      } else {
+        window.open(datum.url, '_blank')
       }
     });
     

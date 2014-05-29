@@ -98,6 +98,7 @@ SF Style:https://pbs.twimg.com/profile_images/2794778110/95f5e27740f4fcebcaae185
 ###marketing
 
 ###cooking
+pornburger:https://pbs.twimg.com/profile_images/447962684944707585/6mx6UXnM_400x400.jpeg
 
 ###diy
 Make:https://pbs.twimg.com/profile_images/2603942343/3guojccznm68za2ni4mw.png
@@ -192,6 +193,7 @@ SF Style:http://feeds.feedburner.com/SFstyle
 ###Marketing
 
 ###Cooking
+pornburger:http://pornburger.me/feed/
 
 ###DIY
 Make:http://blog.makezine.com/index.xml
@@ -233,7 +235,13 @@ Most content containers include words entry or article
 Condition: if container includes words or article and only contians <p> or <img> tags then scrape it
 
 
+#TODO:
 
+##Change urls passed to navBar initialize!!!!!!!! for Views:
+####feed_view.js
+####sources_view.js
+####userfeeds_view.js
 
+##Change bookmark color/appearance after click/bookmarking
 
 

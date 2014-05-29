@@ -12,6 +12,20 @@ module Api
       end
     end
     
+    def user_feed_entries
+      if signed_in?        
+        @user_entries = []
+        
+        current_user.feeds.each do |feed|
+          @user_entries.concat(feed.entries)
+        end
+        
+        render json: @user_entries
+      else
+        render :json => { error: @user_entries.errors.full_messages }, status: :unprocessable_entity
+      end
+    end
+    
     def create_user_feed
       if signed_in?
         uf = UserFeed.new

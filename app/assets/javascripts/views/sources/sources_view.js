@@ -10,7 +10,14 @@ WellFed.Views.SourcesView = Backbone.CompositeView.extend({
   renderNav: function() {
     var navView = new WellFed.Views.NavView({
       model: this.model,
-      collection: this.collection
+      collection: this.collection,
+      //need to modify this to make it more pertinent
+      //maybe change the controller give entries for
+      //each feed in sources
+      entryUrl: "api/feeds",
+      feedUrl: "/api/feeds",
+      title: this.model.attributes.title,
+      count: ""
     });
     
     $("#navigation").html(navView.render().$el);

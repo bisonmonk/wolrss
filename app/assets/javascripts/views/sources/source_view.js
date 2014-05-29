@@ -12,10 +12,10 @@ WellFed.Views.SourceView = Backbone.View.extend({
   },
   
   render: function() {
+    //debugger;
     var sample_article = this.model.entries().models[1];
     var content = this.template({
-      source: this.model,
-      sample_article: sample_article
+      title: this.model.attributes.title
     });
     
     this.$el.html(content);

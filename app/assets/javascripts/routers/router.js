@@ -2,8 +2,9 @@ WellFed.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "categoriesIndex",
     "categories/:id": "categoryShow",
-    "feeds/:id": "feedShow",
-    "feeds/user_feeds": "usersFeedsIndex"
+    "feeds/user_feeds": "userFeedsIndex",
+    "entries/user_entries": "userEntriesIndex",
+    "feeds/:id": "feedShow"
   },
   
   //page with each category listed
@@ -30,7 +31,25 @@ WellFed.Routers.Router = Backbone.Router.extend({
     this._swapView(sourcesView);
   },
   
+  userFeedsIndex: function() {
+    var userFeedsView = new WellFed.Views.UserFeedsView({
+      collection: WellFed.Collections.userFeeds
+    });
+    //debugger;
+    WellFed.Collections.userFeeds.fetch();
+    this._swapView(userFeedsView);
+  },
+  
+  userEntriesIndex: function() {
+    var userEntriesView = new WellFed.Views.UserEntries({
+      collection: WellFed.Collections.userEntries
+    });
+    WellFed.Collections.userEntries.fetch();
+    this._swapView(userEntriesView);
+  },
+  
   feedShow: function(id) {
+    //debugger;
     var feed = WellFed.Collections.feeds.getOrFetch(id);
     
     var feedView = new WellFed.Views.FeedView({
@@ -42,28 +61,19 @@ WellFed.Routers.Router = Backbone.Router.extend({
     
     this._swapView(feedView);
   },
-  
-  userFeedsIndex: function() {
-    var userFeedsView = new WellFed.Views.UserFeedsView({
-      collection: WellFed.Collections.userFeeds
-    });
-    
-    WellFed.Collections.userFeeds.fetch();
-    this._swapView(userFeedsView);
-  },
-  
-  userFeedShow: function(id) {
-    var user_feed = WellFed.Collections.userFeeds.getOrFetch(id);
-    
-    var feedView = new WellFed.Views.FeedView({
-      model: feed,
-      collection: WellFed.Collections.titles
-    });
-    
-    WellFed.Collections.titles.fetch();
-    
-    this._swapView(feedView);
-  },
+  // 
+  // userFeedShow: function(id) {
+  //   var user_feed = WellFed.Collections.userFeeds.getOrFetch(id);
+  //   
+  //   var feedView = new WellFed.Views.FeedView({
+  //     model: feed,
+  //     collection: WellFed.Collections.titles
+  //   });
+  //   
+  //   WellFed.Collections.titles.fetch();
+  //   
+  //   this._swapView(feedView);
+  // },
   
   _swapView: function(view) {
     if (this.currentView) {

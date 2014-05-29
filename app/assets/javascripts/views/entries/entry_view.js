@@ -3,26 +3,6 @@ WellFed.Views.EntryView = Backbone.View.extend({
   
   template: JST["entries/show"],
   
-  events: {
-    "click span.glyphicon-bookmark":"bookmarkEntry"
-  },
-  
-  bookmarkEntry: function() {
-    if (currentUserId !== 'undefined') {
-      //alert("clicked a bookmark");
-      //debugger;
-      var data = {
-        entry_id: this.model.attributes.id,
-        user_id: currentUserId
-      };
-      var userEntry = new WellFed.Models.UserEntry(data);
-      userEntry.save({});
-      
-    } else {
-      alert("show modal to sign up user")
-    }
-  },
-  
   render: function() {
     //debugger;
     var content = this.template({

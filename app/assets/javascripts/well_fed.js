@@ -9,6 +9,7 @@ window.WellFed = {
     
     WellFed.Collections.feeds = new WellFed.Collections.Feeds();
     WellFed.Collections.userFeeds = new WellFed.Collections.UserFeeds();
+    WellFed.Collections.userEntries = new WellFed.Collections.UserEntries();
     WellFed.Collections.titles = new WellFed.Collections.Titles();
     WellFed.Collections.categories = new WellFed.Collections.Categories();
     
