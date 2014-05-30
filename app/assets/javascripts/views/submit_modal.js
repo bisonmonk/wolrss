@@ -1,6 +1,6 @@
 WellFed.Views.SubmitModal = Backbone.View.extend({
   events: {
-    "click #submit-modal": "createSession"
+    "submit": "createSession"
   },
   
   template: JST['login_form'],
@@ -15,19 +15,27 @@ WellFed.Views.SubmitModal = Backbone.View.extend({
   
   createSession: function(event) {
     event.preventDefault();
-    
-    alert("wooo hooo")
+    var email = this.$('#email').val();
+    var password = this.$('#password').val();
     //debugger;
-    // $.ajax("/session", {
-    //   type: "POST", 
-    //   dataType: "JSON", 
-    //   data: {
-    //     user: {
-    //       email: "matt", 
-    //       password: "password"
-    //     }
-    //   } 
-    // });
+    //debugger;
+    $.ajax("/session", {
+      type: "POST", 
+      dataType: "JSON", 
+      data: {
+        user: {
+          email: email, 
+          password: password
+        }
+      },
+      
+      success: function() {
+        console.log("great success!");
+        $("#loginModal").modal({
+          show: false
+        });
+      }
+    });
   }
 });
 

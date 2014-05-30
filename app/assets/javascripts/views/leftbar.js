@@ -1,5 +1,8 @@
 WellFed.Views.LeftBar = Backbone.View.extend({
   // className: "left-bar-wrapper",
+  initialize: function() {
+    //this.listenTo(this, "change", this.render);
+  },
   
   template: function() {
     if (currentUserId) {
