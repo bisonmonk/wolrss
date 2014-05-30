@@ -17,7 +17,7 @@ WellFed.Views.EntryView = Backbone.View.extend({
      userEntry.save({});
    
    } else {
-     alert("show modal to sign up user")
+     alert("show modal to sign up user");
    }
   },
   

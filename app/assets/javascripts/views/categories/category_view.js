@@ -24,7 +24,7 @@ WellFed.Views.CategoryView = Backbone.View.extend({
     
     
     this.$el.html(content);
-    this.$el.css('background-image', 'url(' + this.model.attributes.image + ')');
+    //this.$el.css('background-image', 'url(' + this.model.attributes.image + ')');
     
     return this;
   }

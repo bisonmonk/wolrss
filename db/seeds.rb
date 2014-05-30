@@ -28,62 +28,63 @@ ActiveRecord::Base.transaction do
 
   id = Category.find_by_title("News").id
   
-  # Feed.find_or_create_by_url("http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml",
-  # "https://pbs.twimg.com/profile_images/2044921128/finals.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.npr.org/rss/rss.php?id=1001",
-  # "https://pbs.twimg.com/profile_images/1796148436/nprnews_icon.jpg", id)
-  # 
+  Feed.find_or_create_by_url("http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml",
+  "https://pbs.twimg.com/profile_images/2044921128/finals.png", id)
+  
+  Feed.find_or_create_by_url("http://www.npr.org/rss/rss.php?id=1001",
+  "https://pbs.twimg.com/profile_images/1796148436/nprnews_icon.jpg", id)
+  
+  # DOESN'T WORK 
   # Feed.find_or_create_by_url("http://news.google.com/?output=rss",
   # "https://pbs.twimg.com/profile_images/1843856587/news_icon_big.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://feeds.bbci.co.uk/news/rss.xml",
-  # "https://pbs.twimg.com/profile_images/662708106/bbc.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://rss.cnn.com/rss/cnn_topstories.rss",
-  # "https://pbs.twimg.com/profile_images/454309589777780736/5mfxlzAs.jpeg", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.reuters.com/rssFeed/topNews",
-  # "https://pbs.twimg.com/profile_images/3379693153/1008914c0ae75c9efb5f9c0161fce9a2.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.vice.com/rss",
-  # "https://pbs.twimg.com/profile_images/3060284671/15e9fc92457c5b7633b5378a77b80c26.jpeg", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.theguardian.com/uk/rss",
-  # "https://pbs.twimg.com/profile_images/2814613165/f3c9e3989acac29769ce01b920f526bb.png", id)
+  
+  Feed.find_or_create_by_url("http://feeds.bbci.co.uk/news/rss.xml",
+  "https://pbs.twimg.com/profile_images/662708106/bbc.png", id)
+  
+  Feed.find_or_create_by_url("http://rss.cnn.com/rss/cnn_topstories.rss",
+  "https://pbs.twimg.com/profile_images/454309589777780736/5mfxlzAs.jpeg", id)
+  
+  Feed.find_or_create_by_url("http://www.reuters.com/rssFeed/topNews",
+  "https://pbs.twimg.com/profile_images/3379693153/1008914c0ae75c9efb5f9c0161fce9a2.png", id)
+  
+  Feed.find_or_create_by_url("http://www.vice.com/rss",
+  "https://pbs.twimg.com/profile_images/3060284671/15e9fc92457c5b7633b5378a77b80c26.jpeg", id)
+  
+  Feed.find_or_create_by_url("http://www.theguardian.com/uk/rss",
+  "https://pbs.twimg.com/profile_images/2814613165/f3c9e3989acac29769ce01b920f526bb.png", id)
   # 
 
-  id = Category.find_by_title("Technology").id
-  
-  Feed.find_or_create_by_url("http://feeds.feedburner.com/TechCrunch/?fmt=xml",
-  "https://pbs.twimg.com/profile_images/469171480832380928/rkZR1jIh.png", id)
-  
-  Feed.find_or_create_by_url("http://www.theverge.com/rss/index.xml",
-  "https://pbs.twimg.com/profile_images/1450127603/TheVerge_Badge_Color1_400x400.png", id)
-  
-  Feed.find_or_create_by_url("http://feeds.mashable.com/Mashable?format=xml",
-  "https://pbs.twimg.com/profile_images/3690637553/5c348fee8afbcefa1978004a864a51ce_400x400.png", id)
-  
-  Feed.find_or_create_by_url("http://feeds.wired.com/wired/index",
-  "https://pbs.twimg.com/profile_images/378800000703426078/f0e0491c473589ad484d976ca45d712b_400x400.png", id)
-  
-  Feed.find_or_create_by_url("http://feeds.gawker.com/gizmodo/full",
-  "https://pbs.twimg.com/profile_images/1860214036/Gizmodo-Twitter-Avatar.jpeg", id)
-  
-  Feed.find_or_create_by_url("http://feeds.arstechnica.com/arstechnica/features",
-  "https://pbs.twimg.com/profile_images/2215576731/ars-logo_400x400.png", id)
-  
-  Feed.find_or_create_by_url("http://lifehacker.com/rss",
-  "https://pbs.twimg.com/profile_images/1861146796/Twitter_-_Avatar.png", id)
-  
-  Feed.find_or_create_by_url("http://www.engadget.com/rss.xml",
-  "https://pbs.twimg.com/profile_images/458692107188727808/pp_QyGUm.png", id)
-  
-  Feed.find_or_create_by_url("http://www.digitaltrends.com/feed/",
-  "https://pbs.twimg.com/profile_images/3705803887/0ca54f222527b7c5efc0a30e9a367729.png", id)
-  
-  Feed.find_or_create_by_url("http://www.readwriteweb.com/rss.xml",
-  "https://pbs.twimg.com/profile_images/2750899250/294d9c7b13ba263c7c3f634a487d468d.jpeg", id)
+  # id = Category.find_by_title("Technology").id
+  # 
+  # Feed.find_or_create_by_url("http://feeds.feedburner.com/TechCrunch/?fmt=xml",
+  # "https://pbs.twimg.com/profile_images/469171480832380928/rkZR1jIh.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://www.theverge.com/rss/index.xml",
+  # "https://pbs.twimg.com/profile_images/1450127603/TheVerge_Badge_Color1_400x400.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://feeds.mashable.com/Mashable?format=xml",
+  # "https://pbs.twimg.com/profile_images/3690637553/5c348fee8afbcefa1978004a864a51ce_400x400.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://feeds.wired.com/wired/index",
+  # "https://pbs.twimg.com/profile_images/378800000703426078/f0e0491c473589ad484d976ca45d712b_400x400.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://feeds.gawker.com/gizmodo/full",
+  # "https://pbs.twimg.com/profile_images/1860214036/Gizmodo-Twitter-Avatar.jpeg", id)
+  # 
+  # Feed.find_or_create_by_url("http://feeds.arstechnica.com/arstechnica/features",
+  # "https://pbs.twimg.com/profile_images/2215576731/ars-logo_400x400.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://lifehacker.com/rss",
+  # "https://pbs.twimg.com/profile_images/1861146796/Twitter_-_Avatar.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://www.engadget.com/rss.xml",
+  # "https://pbs.twimg.com/profile_images/458692107188727808/pp_QyGUm.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://www.digitaltrends.com/feed/",
+  # "https://pbs.twimg.com/profile_images/3705803887/0ca54f222527b7c5efc0a30e9a367729.png", id)
+  # 
+  # Feed.find_or_create_by_url("http://www.readwriteweb.com/rss.xml",
+  # "https://pbs.twimg.com/profile_images/2750899250/294d9c7b13ba263c7c3f634a487d468d.jpeg", id)
   
   # Feed.find_or_create_by_url("http://feeds.feedburner.com/hacker-news-feed-50?format=xml",
 #   "https://pbs.twimg.com/profile_images/712101873/Y_Combinator_Logo_400.gif", id)
@@ -117,8 +118,8 @@ ActiveRecord::Base.transaction do
   # 
   # 
   # id = Category.find_by_title("Finance").id
-  # 
-  # 
+  # # 
+  # # 
   # Feed.find_or_create_by_url("http://feeds.marketwatch.com/marketwatch/topstories/",
   # "https://pbs.twimg.com/profile_images/459467961355366400/8FyQHMZc.jpeg", id)
   # 
@@ -128,9 +129,12 @@ ActiveRecord::Base.transaction do
   # Feed.find_or_create_by_url("http://rss.cnn.com/rss/money_topstories.rss",
   # "https://pbs.twimg.com/profile_images/1344702851/fb_cnnmoney_new_logo_avatar.jpg", id)
   # 
+  # 
+  # 
   # Feed.find_or_create_by_url("http://online.wsj.com/xml/rss/3_7031.xml",
   # "https://pbs.twimg.com/profile_images/3506611410/67f4571793d00237fc10ca0df7811f09.jpeg", id)
   # 
+  # #DOESN'T WORK
   # Feed.find_or_create_by_url("http://www.economist.com/feeds/print-sections/79/finance-and-economics.xml",
   # "https://pbs.twimg.com/profile_images/461499742950678528/2JnpHjUo.png", id)
   # 
@@ -138,23 +142,23 @@ ActiveRecord::Base.transaction do
   # "https://pbs.twimg.com/profile_images/464517238075060225/g295Q3ey.png", id)
   # 
   # 
-  # id = Category.find_by_title("Gaming").id
-  # 
-  # 
-  # Feed.find_or_create_by_url("http://feeds.gawker.com/kotaku/vip",
-  # "https://pbs.twimg.com/profile_images/378800000483599841/b1e511e53161fb612a5bf00430f9687a.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://feeds.ign.com/ign/games-all",
-  # "https://pbs.twimg.com/profile_images/433413072040898560/LXg26Ea9.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.joystiq.com/rss.xml",
-  # "https://pbs.twimg.com/profile_images/979078171/joystiq-square-icon.jpg", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.polygon.com/rss/index.xml",
-  # "https://pbs.twimg.com/profile_images/2785670422/b0f08dd3b999bd0debb5352a058707aa.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://feeds.feedburner.com/RockPaperShotgun",
-  # "https://pbs.twimg.com/profile_images/1443642491/twit.jpg", id)
+  id = Category.find_by_title("Gaming").id
+  
+  
+  Feed.find_or_create_by_url("http://feeds.gawker.com/kotaku/vip",
+  "https://pbs.twimg.com/profile_images/378800000483599841/b1e511e53161fb612a5bf00430f9687a.png", id)
+  
+  Feed.find_or_create_by_url("http://feeds.ign.com/ign/games-all",
+  "https://pbs.twimg.com/profile_images/433413072040898560/LXg26Ea9.png", id)
+  
+  Feed.find_or_create_by_url("http://www.joystiq.com/rss.xml",
+  "https://pbs.twimg.com/profile_images/979078171/joystiq-square-icon.jpg", id)
+  
+  Feed.find_or_create_by_url("http://www.polygon.com/rss/index.xml",
+  "https://pbs.twimg.com/profile_images/2785670422/b0f08dd3b999bd0debb5352a058707aa.png", id)
+  
+  Feed.find_or_create_by_url("http://feeds.feedburner.com/RockPaperShotgun",
+  "https://pbs.twimg.com/profile_images/1443642491/twit.jpg", id)
   # 
   # 
   # id = Category.find_by_title("Design").id

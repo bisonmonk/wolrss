@@ -1,7 +1,7 @@
 WellFed.Views.FeedView = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.model, 'sync', this.render);
   },
   
   className: "feed container",
@@ -39,7 +39,7 @@ WellFed.Views.FeedView = Backbone.CompositeView.extend({
   },
   
   render: function() {
-    debugger;
+    //debugger;
     var content = this.template({
       feed: this.model,
     });

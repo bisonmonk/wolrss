@@ -9,17 +9,20 @@ WellFed.Views.LeftBar = Backbone.View.extend({
       return JST["leftnav"];
     } else {
       return JST["guest-leftnav"];
-      //debugger;
-      // $(".content").append(JST["modal"]);
     }
   },
   
   events: {
     "click #home": "goHome",
     "click #articles": "savedArticles",
+    "click #prev-page": "previousPage",
     "click #user-feeds": "savedFeeds",
     "click #login": "showModal",
     "click #logout": "logOut"
+  },
+  
+  previousPage: function() {
+    Backbone.history.navigate("/categories/" + this.model.attributes.category_id, true);
   },
   
   showModal: function() {
@@ -38,11 +41,10 @@ WellFed.Views.LeftBar = Backbone.View.extend({
   },
   
   savedArticles: function() {
-    alert("click articles");
+    Backbone.history.navigate("entries/user_entries", true);
   },
   
   savedFeeds: function() {
-    //alert("click feeds")
     Backbone.history.navigate("feeds/user_feeds", true);
   },
   
@@ -52,22 +54,15 @@ WellFed.Views.LeftBar = Backbone.View.extend({
       type: "DELETE",
       complete: function() {
         window.currentUserId = undefined;
-        debugger;
         that.render();
-        //Backbone.history.navigate("", true);
-        //WANT TO RERENDER, NEED TO REDELEGATE EVENTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //that.render();
-        //debugger;
       }
     });
   },
   
   render: function() {
-    //debugger;
     var content = this.template({});
     
     this.$el.html(content());
-    //debugger;
     $(".container").append(JST["modal"]());
     
     return this;

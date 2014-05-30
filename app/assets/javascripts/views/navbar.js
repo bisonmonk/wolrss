@@ -1,5 +1,6 @@
 WellFed.Views.NavView = Backbone.View.extend({
   initialize: function(options) {
+    this.listenTo(this.model, "change", this.render)
     this.entryUrl = options.entryUrl;
     this.feedUrl = options.feedUrl;
     this.title = options.title;
@@ -8,7 +9,7 @@ WellFed.Views.NavView = Backbone.View.extend({
   
   events: {
     "click #to-top": "toTop",
-    "click #refresh": "refreshCollection"
+    "click #refresh": "refreshCollection",
   },
   
   refreshCollection: function() {
@@ -40,12 +41,6 @@ WellFed.Views.NavView = Backbone.View.extend({
   },
   
   render: function() {
-    //var title = this.model.attributes.title;
-    // var count = "";
-    // if (!!this.model.entries) {
-    //   count = this.model.entries().models.length + " articles";
-    // }
-        
     var content = this.template({
       title: this.title,
       count: this.count

@@ -247,4 +247,8 @@ Condition: if container includes words or article and only contians <p> or <img>
 ##After login,  change left nav bar to logged in left nav
 ##Fix 500 error when logging out due to current_user being nil
 
+#Refactor
+
+##Don't fetch all entries at once, fetch for entries, then for sources, then for categories
+
 
