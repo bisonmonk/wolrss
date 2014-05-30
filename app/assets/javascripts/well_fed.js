@@ -5,7 +5,7 @@ window.WellFed = {
   Routers: {},
   initialize: function() {
     //Will probably change to sources later
-    
+    window.currentUserId = undefined;
     
     WellFed.Collections.feeds = new WellFed.Collections.Feeds();
     WellFed.Collections.userFeeds = new WellFed.Collections.UserFeeds();

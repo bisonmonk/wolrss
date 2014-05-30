@@ -7,7 +7,12 @@ WellFed.Views.NavView = Backbone.View.extend({
   },
   
   events: {
-    "click #to-top": "toTop"
+    "click #to-top": "toTop",
+    "click #refresh": "refreshCollection"
+  },
+  
+  refreshCollection: function() {
+    this.model.fetch();
   },
   
   toTop: function() {

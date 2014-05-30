@@ -1,4 +1,9 @@
 WellFed.Views.SubmitModal = Backbone.View.extend({
+  initialize: function(options) {
+    this.leftNavView = options.view;
+    //debugger;
+  },
+  
   events: {
     "submit": "createSession"
   },
@@ -14,9 +19,14 @@ WellFed.Views.SubmitModal = Backbone.View.extend({
   },
   
   createSession: function(event) {
+    var that = this;
+    //email and password both use to have this in front
+    // var email = this.$('#email').val();
+    // var password = this.$('#password').val();
+    // 
     event.preventDefault();
-    var email = this.$('#email').val();
-    var password = this.$('#password').val();
+    var email = $('#email').val();
+    var password = $('#password').val();
     //debugger;
     //debugger;
     $.ajax("/session", {
@@ -29,11 +39,10 @@ WellFed.Views.SubmitModal = Backbone.View.extend({
         }
       },
       
-      success: function() {
-        console.log("great success!");
-        $("#loginModal").modal({
-          show: false
-        });
+      success: function(data) {
+        window.currentUserId = data.id;
+        $("#loginModal").modal('hide');
+        that.leftNavView.render();
       }
     });
   }

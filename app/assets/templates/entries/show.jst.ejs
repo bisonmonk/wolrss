@@ -22,6 +22,7 @@
       <div class="summary-title">
         <strong><%= entry.title %></strong>
       </div>
+      <div><%= moment(entry.published_at).fromNow() %></div>
       <div class="summary-description">
         <%= entry.summary %>
       </div>

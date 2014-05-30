@@ -51,7 +51,7 @@ WellFed.Routers.Router = Backbone.Router.extend({
   feedShow: function(id) {
     //debugger;
     var feed = WellFed.Collections.feeds.getOrFetch(id);
-    
+        
     var feedView = new WellFed.Views.FeedView({
       model: feed,
       collection: WellFed.Collections.titles

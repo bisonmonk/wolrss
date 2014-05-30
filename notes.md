@@ -244,4 +244,7 @@ Condition: if container includes words or article and only contians <p> or <img>
 
 ##Change bookmark color/appearance after click/bookmarking
 
+##After login,  change left nav bar to logged in left nav
+##Fix 500 error when logging out due to current_user being nil
+
 

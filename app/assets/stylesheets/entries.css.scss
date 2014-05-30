@@ -8,10 +8,9 @@ body {
   height: 100%;
 }
 
-
 #content {
   height: 100%;
-  margin-left: 164px;
+  margin-left: 144px;
 }
 
 .feed {
@@ -129,19 +128,6 @@ body {
   float: right;
 }
 
-//.bookmark {
-//  color: #0ABAFA;
-//  font-size: 2em;
-//  margin-right: -1px;
-//  margin-top: -0.5px;
-//  text-shadow: 0px 0 #0485b4, 0 3px #0485b4, 0px 0 #0485b4, 0 3px #0485b4;
-//}
-//
-//.bookmark:hover {
-//  color: #0a92fa;
-//  text-shadow: 0px 0 #036082, 0 3px #036082, 0px 0 #036082, 0 3px #036082;
-//}
-
 span.glyphicon-bookmark {
   z-index: 1;
   color: #0ABAFA;
@@ -149,24 +135,19 @@ span.glyphicon-bookmark {
   margin-right: -1px;
   margin-top: -0.5px;
   text-shadow: 0px 0 #0485b4, 0 3px #0485b4, 0px 0 #0485b4, 0 3px #0485b4;
-//  cursor: hand;
-//  cursor: pointer;
 }
 
 span.glyphicon-bookmark:hover {
   color: #0a92fa;
   text-shadow: 0px 0 #036082, 0 3px #036082, 0px 0 #036082, 0 3px #036082;
-//  cursor: hand;
-//  cursor: pointer;
+  cursor: hand;
+  cursor: pointer;
 }
 
 .nav-actions span {
   cursor: hand;
   cursor: pointer;
 }
-
-.entry-item {}
-
 
 .entry-summary {
   letter-spacing: 0.4px;
