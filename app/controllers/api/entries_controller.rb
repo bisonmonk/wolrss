@@ -34,7 +34,8 @@ module Api
     def index
       feed = Feed.find(params[:feed_id])
       # feed.reload if Time.now - feed.updated_at > 300.seconds
-      render json: feed.entries
+      #limit the number of entries to 50 for a specific feed
+      render json: feed.entries.limit(50)
     end
     
     private

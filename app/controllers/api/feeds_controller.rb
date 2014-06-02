@@ -45,17 +45,18 @@ module Api
     end
     
     def index
-      @feeds = Feed.includes(:entries).all
+      #@feeds = Feed.includes(:entries).all
+      @feeds = Feed.all
       
-      @feeds.each do |feed|
-        feed.reload if Time.now - feed.updated_at > 300.seconds
-      end
+      # @feeds.each do |feed|
+      #   feed.reload if Time.now - feed.updated_at > 300.seconds
+      # end
       
       render :index
     end
     
     def show
-      @feed = Feed.find(params[:id])
+      @feed = Feed.find(params[:id])#.entries.limit(50)
       
       # fail
       
