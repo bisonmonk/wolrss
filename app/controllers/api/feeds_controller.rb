@@ -48,6 +48,7 @@ module Api
       #@feeds = Feed.includes(:entries).all
       @feeds = Feed.all
       
+      #Just do for a feed when you show it not for every feed, takes way too long.
       # @feeds.each do |feed|
       #   feed.reload if Time.now - feed.updated_at > 300.seconds
       # end
