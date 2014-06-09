@@ -1,6 +1,6 @@
-# require 'hashie'
-# require 'nokogiri'
-# require 'restclient'
+require 'hashie'
+require 'nokogiri'
+require 'restclient'
 
 module OpenGraph
   # Fetch Open Graph data from the specified URI. Makes an

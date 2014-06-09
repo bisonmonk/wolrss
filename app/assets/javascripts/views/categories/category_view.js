@@ -15,12 +15,18 @@ WellFed.Views.CategoryView = Backbone.CompositeView.extend({
   renderBackgroundImages: function() {
     var four_feeds = this.model.feeds().models.slice(0, 4);
     
+    four_feeds.forEach(function(feed_image) {
+      var view = new WellFed.Views.FeedImageView({
+        feed_image: feed_image
+      });
+      this.addSubView('#categories', view.render());
+    }, this);
     
     
     
-    <% for (var i = 0; i < four.length - 1; i++) { %>
-      <img class="inner-img" src="<%= four[i].attributes.image %>" />
-    <% } %>
+    // <% for (var i = 0; i < four.length - 1; i++) { %>
+    //   <img class="inner-img" src="<%= four[i].attributes.image %>" />
+    // <% } %>
   },
   
   render: function() {
