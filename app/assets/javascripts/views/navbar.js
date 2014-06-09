@@ -27,7 +27,11 @@ WellFed.Views.NavView = Backbone.View.extend({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       limit: 8,
-      prefetch: this.entryUrl
+      prefetch: {
+        url: this.feedUrl,
+        ttl: 30
+      }
+      //prefetch: this.entryUrl
     });
   },
   
@@ -36,7 +40,11 @@ WellFed.Views.NavView = Backbone.View.extend({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       limit: 8,
-      prefetch: this.feedUrl
+      prefetch: {
+        url: this.feedUrl,
+        ttl: 30
+      }
+      // prefetch: this.feedUrl
     });
   },
   

@@ -1,4 +1,4 @@
-WellFed.Views.CategoryView = Backbone.View.extend({
+WellFed.Views.CategoryView = Backbone.CompositeView.extend({
   className: 'category-item col-xs-4',
   
   template: JST['categories/show'],
@@ -8,13 +8,24 @@ WellFed.Views.CategoryView = Backbone.View.extend({
   },
   
   navigateToSources: function() {
-    //debugger;
     Backbone.history.navigate("/categories/" + this.model.id, true);
-    //alert("would navigate if i could");
+  },
+  
+  //renders four inner images
+  renderBackgroundImages: function() {
+    var four_feeds = this.model.feeds().models.slice(0, 4);
+    
+    
+    
+    
+    <% for (var i = 0; i < four.length - 1; i++) { %>
+      <img class="inner-img" src="<%= four[i].attributes.image %>" />
+    <% } %>
   },
   
   render: function() {
-    first_feed = this.model.feeds().models[0];
+    
+    //debugger;
     //sample_article = first_feed.entries().models[0];
 
     var content = this.template({

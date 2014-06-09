@@ -13,7 +13,7 @@
   padding-top: 50px;
   line-height: 125%;
   letter-spacing: 0.005em;
-  width: 60%;
+  width: 100%;
   border-left: 1px solid #049BD1;
 }
 
@@ -27,19 +27,17 @@
   cursor: pointer;
 }
 
-//.category-wrapper:hover {
-//  cursor: hand;
-//  cursor: pointer;
-//}
-
 .category-wrapper:hover {
   transition: background-color 0.5s ease;
   background-color: rgba(0,0,0,0.00);
+  cursor: hand;
+  cursor: pointer;
   //transition: color 0.5s ease;
   //color: rgba(0,0,0,0.0);
 }
 
 .category-item {
+  
   padding-left: 0px;
   padding-right: 0px;
   
@@ -57,4 +55,11 @@
   border-right: 1px solid #049BD1;
   
   list-style-type: none;
+}
+
+.inner-img {
+  width: 138px;
+  height: 138px;
+  float: left;
+  //box-sizing: border-box;
 }
