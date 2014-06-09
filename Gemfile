@@ -58,7 +58,6 @@ gem 'serialize_json-rails'
 
 gem 'bootstrap-sass'
 
-gem 'open_uri_redirections'
 gem 'simple-rss'
 gem 'feedjira'
 gem 'fastimage'
