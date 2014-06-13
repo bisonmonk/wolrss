@@ -1,7 +1,7 @@
 WellFed.Views.CategoriesView = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);
-    this.categoryData = [];
+    this.categoryData = false;
   },
   
   template: JST['categories/index'],
@@ -16,14 +16,15 @@ WellFed.Views.CategoriesView = Backbone.CompositeView.extend({
       var titleAndImage = ["#" + category.attributes.title,
                            category.attributes.image];
       
-      this.categoryData.push(titleAndImage);
+      this.categoryData = true;
       
       this.addSubView('#categories', view.render());
     }, this);
   },
   
+  //add this category's title to its class to attach background
+  //images to appropriate tile.
   renderBackgroundImages: function(category) {
-    //debugger;
     var four_feeds = category.feeds().slice(0, 4);
     
     four_feeds.forEach(function(feed) {
@@ -31,15 +32,8 @@ WellFed.Views.CategoriesView = Backbone.CompositeView.extend({
         feed: feed
       });
       
-      //debugger;
       this.addSubView("#" + category.attributes.title, view.render());
     }, this);
-    
-    
-    
-    // <% for (var i = 0; i < four.length - 1; i++) { %>
-    //   <img class="inner-img" src="<%= four[i].attributes.image %>" />
-    // <% } %>
   },
   
   render: function() {
@@ -51,23 +45,12 @@ WellFed.Views.CategoriesView = Backbone.CompositeView.extend({
     
     this.renderCategories();
     
-    if (this.categoryData.length > 0) {
+    if (this.categoryData) {
       var that = this;
       this.collection.each(function(category) {
         that.renderBackgroundImages(category);
       });
-      // for (var i = 0; i < this.categoryData.length; i++) {
-      //   var selector = this.categoryData[i][0];
-      //   var image = this.categoryData[i][1];
-      //   this.renderBackgroundImages(selector, image);
-      // }
-      // 
-      // this.catTitle = this.model.attributes.title;
-      // this.$el.attr('id', this.catTitle);
-      // this.renderBackgroundImages();
     }
-    
-    //debugger;
     
     return this;
   }

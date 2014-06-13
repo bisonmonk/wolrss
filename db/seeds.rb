@@ -100,7 +100,7 @@ ActiveRecord::Base.transaction do
   "https://pbs.twimg.com/profile_images/3381256262/28c6bc5924fb01f8ba4071e8939f85d7.png", id)
   
   Feed.find_or_create_by_url("http://feeds.feedburner.com/entrepreneur/latest?fmt=xml",
-  "https://pbs.twimg.com/profile_images/378800000547873895/5b9b3e8bd0344ad211ca6dc55ba65178.jpeg", id)
+  "https://pbs.twimg.com/profile_images/474753665970868224/GcoCzmcI.jpeg", id)
   
   Feed.find_or_create_by_url("http://feeds.feedburner.com/venturebeat",
   "https://pbs.twimg.com/profile_images/1818169678/VB_twitter_logo.jpg", id)
