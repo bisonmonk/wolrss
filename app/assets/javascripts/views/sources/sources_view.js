@@ -1,6 +1,6 @@
 WellFed.Views.SourcesView = Backbone.CompositeView.extend({
   initialize: function() {
-    this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.model, 'sync', this.render);
   },
   
   className: "sources container",

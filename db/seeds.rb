@@ -41,6 +41,9 @@ ActiveRecord::Base.transaction do
   Feed.find_or_create_by_url("http://feeds.bbci.co.uk/news/rss.xml",
   "https://pbs.twimg.com/profile_images/662708106/bbc.png", id)
   
+  
+  
+  
   Feed.find_or_create_by_url("http://rss.cnn.com/rss/cnn_topstories.rss",
   "https://pbs.twimg.com/profile_images/454309589777780736/5mfxlzAs.jpeg", id)
   
@@ -108,8 +111,8 @@ ActiveRecord::Base.transaction do
   Feed.find_or_create_by_url("http://online.wsj.com/xml/rss/3_7014.xml",
   "https://pbs.twimg.com/profile_images/458681605477785600/cFOQ_6Ox.jpeg", id)
   
-  Feed.find_or_create_by_url("http://www.businessweek.com/feeds/most-popular.rss",
-  "https://pbs.twimg.com/profile_images/461499999121981440/6RriLE4H.jpeg", id)
+  # Feed.find_or_create_by_url("http://www.businessweek.com/feeds/most-popular.rss",
+  # "https://pbs.twimg.com/profile_images/461499999121981440/6RriLE4H.jpeg", id)
   
   Feed.find_or_create_by_url("http://rss.cnn.com/rss/magazines_fortune.rss",
   "https://pbs.twimg.com/profile_images/459373605852172288/XtTZlC8V.png", id)

@@ -1,6 +1,10 @@
-require 'hashie'
-require 'nokogiri'
-require 'restclient'
+# require 'hashie'
+# require 'nokogiri'
+# require 'restclient'
+
+
+#ORIGINAL SOURCE BELONGS TO:
+#https://github.com/intridea/opengraph
 
 module OpenGraph
   # Fetch Open Graph data from the specified URI. Makes an
@@ -13,6 +17,25 @@ module OpenGraph
     parse(RestClient.get(uri).body, strict)
   rescue RestClient::Exception, SocketError
     false
+  end
+  
+  def fetch(uri, strict = true)
+    parse(RestClient.get(uri).body, strict)
+  rescue RestClient::Exception, SocketError
+    false
+  end
+  
+  def parse(html, strict = true)
+    doc = Nokogiri::HTML.parse(html)
+    page = OpenGraph::Object.new
+    doc.css('meta').each do |m|
+      if m.attribute('property') && m.attribute('property').to_s.match(/^og:(.+)$/i)
+        page[$1.gsub('-','_')] = m.attribute('content').to_s
+      end
+    end
+    return false if page.keys.empty?
+    return false unless page.valid? if strict
+    page
   end
   
   def self.parse(html, strict = true)
@@ -28,17 +51,6 @@ module OpenGraph
     page
   end
   
-  TYPES = {
-    'activity' => %w(activity sport),
-    'business' => %w(bar company cafe hotel restaurant),
-    'group' => %w(cause sports_league sports_team),
-    'organization' => %w(band government non_profit school university),
-    'person' => %w(actor athlete author director musician politician public_figure),
-    'place' => %w(city country landmark state_province),
-    'product' => %w(album book drink food game movie product song tv_show),
-    'website' => %w(blog website)
-  }
-  
   # The OpenGraph::Object is a Hash with method accessors for
   # all detected Open Graph attributes.
   class Object < Hashie::Mash
@@ -47,27 +59,6 @@ module OpenGraph
     # The object type.
     def type
       self['type']
-    end
-    
-    # The schema under which this particular object lies. May be any of
-    # the keys of the TYPES constant.
-    def schema
-      OpenGraph::TYPES.each_pair do |schema, types| 
-        return schema if types.include?(self.type)
-      end
-      nil
-    end
-    
-    OpenGraph::TYPES.values.flatten.each do |type|
-      define_method "#{type}?" do
-        self.type == type
-      end
-    end
-    
-    OpenGraph::TYPES.keys.each do |scheme|
-      define_method "#{scheme}?" do
-        self.type == scheme || OpenGraph::TYPES[scheme].include?(self.type)
-      end
     end
     
     # If the Open Graph information for this object doesn't contain
