@@ -22,7 +22,7 @@
   width: 100%;
   position: absolute;
   transition: background-color 0.5s ease, color 0.5s ease;
-  background-color:rgba(4,155,209,0.15);
+  background-color:rgba(0,0,0,0.15);
   cursor: hand;
   cursor: pointer;
 }
@@ -36,6 +36,11 @@
   //color: rgba(0,0,0,0.0);
 }
 
+.category-title {
+  margin-left: 8px;
+  margin-top: 2px;
+}
+
 .category-item {
   
   padding-left: 0px;
@@ -45,8 +50,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   
-  height: 280px;
-  width: 280px;
+  height: 279px;
+  width: 279px;
   color: #fff;
   font-family: 'Roboto';
   font-weight: 200;
