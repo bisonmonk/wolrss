@@ -37,13 +37,13 @@ WellFed.Views.CategoriesView = Backbone.CompositeView.extend({
   },
   
   renderCategoryNav: function() {
-    var catNavView = new WellFed.Views.NavView({
-      model: this.model,
-      collection: this.collection,
+    var catNavView = new WellFed.Views.CatNav({
+      // model: this.model,
+      // collection: this.collection,
       feedUrl: "/api/feeds"
     });
-    
-    $("#navigation").html(navView.render().$el);
+    //this.addSubView("#navigation", catNavView.render());
+    $("#navigation").html(catNavView.render().$el);
   },
   
   render: function() {

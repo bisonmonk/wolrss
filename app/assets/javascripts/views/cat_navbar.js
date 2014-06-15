@@ -1,25 +1,17 @@
 WellFed.Views.CatNav = Backbone.View.extend({
   initialize: function(options) {
-    this.listenTo(this.model, "change", this.render)
     this.feedUrl = options.feedUrl;
-    this.title = options.title;
-    this.count = options.count;
   },
   
   events: {
-    "click #to-top": "toTop",
-    "click #refresh": "refreshCollection",
-  },
-  
-  refreshCollection: function() {
-    this.model.fetch();
+    "click #to-top": "toTop"
   },
   
   toTop: function() {
     $('body').animate({'scrollTop': 0}, 500)
   },
   
-  template: JST["navbar"],
+  template: JST["cat_nav"],
   
   feedEngine: function() {
     return new Bloodhound({
@@ -35,8 +27,8 @@ WellFed.Views.CatNav = Backbone.View.extend({
   
   render: function() {
     var content = this.template({
-      title: this.title,
-      count: this.count
+      // title: this.title,
+      // count: this.count
     });
     
     this.$el.html(content);
