@@ -1,7 +1,6 @@
-WellFed.Views.NavView = Backbone.View.extend({
+WellFed.Views.CatNav = Backbone.View.extend({
   initialize: function(options) {
     this.listenTo(this.model, "change", this.render)
-    //this.entryUrl = options.entryUrl;
     this.feedUrl = options.feedUrl;
     this.title = options.title;
     this.count = options.count;
@@ -22,19 +21,6 @@ WellFed.Views.NavView = Backbone.View.extend({
   
   template: JST["navbar"],
   
-  // entryEngine: function() {
-  //   return new Bloodhound({
-  //     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
-  //     queryTokenizer: Bloodhound.tokenizers.whitespace,
-  //     limit: 8,
-  //     prefetch: {
-  //       url: this.feedUrl,
-  //       ttl: 30
-  //     }
-  //     //prefetch: this.entryUrl
-  //   });
-  // },
-  
   feedEngine: function() {
     return new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
@@ -44,7 +30,6 @@ WellFed.Views.NavView = Backbone.View.extend({
         url: this.feedUrl,
         ttl: 30
       }
-      // prefetch: this.feedUrl
     });
   },
   
@@ -56,11 +41,8 @@ WellFed.Views.NavView = Backbone.View.extend({
     
     this.$el.html(content);
     
-    //var entryTitles = this.entryEngine();
-      
     var feedTitles = this.feedEngine();
     
-    //entryTitles.initialize();
     feedTitles.initialize();
     
     this.$('#search-input .typeahead').typeahead({
@@ -74,15 +56,8 @@ WellFed.Views.NavView = Backbone.View.extend({
         templates: {
           header: '<div class="search-title">Feeds</div>'
         }
-      }//,
-      // {
-      //   name: 'entry-titles',
-      //   displayKey: 'title',
-      //   source: entryTitles.ttAdapter(),  
-      //   templates: {
-      //     header: '<div class="search-title">Articles</div>'
-      //   }
-      // }
+      }
+      
     ).on('typeahead:selected', function(event, datum) {
       //issue: only returns 112 datums not all of them???
       //
@@ -97,5 +72,4 @@ WellFed.Views.NavView = Backbone.View.extend({
     return this;
   }
 });
-
 
