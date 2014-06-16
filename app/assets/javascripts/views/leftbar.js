@@ -57,6 +57,7 @@ WellFed.Views.LeftBar = Backbone.View.extend({
         that.render();
       }
     });
+    Backbone.history.navigate("", true);
   },
   
   render: function() {
