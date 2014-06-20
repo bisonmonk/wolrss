@@ -57,6 +57,11 @@ ActiveRecord::Base.transaction do
   "https://pbs.twimg.com/profile_images/2814613165/f3c9e3989acac29769ce01b920f526bb.png", id)
   
 
+  Feed.find_or_create_by_url("http://fivethirtyeight.com/all/feed",
+  "https://pbs.twimg.com/profile_images/442370574040301568/j673s9Ue.jpeg")
+
+
+
   id = Category.find_by_title("Technology").id
   
   Feed.find_or_create_by_url("http://feeds.feedburner.com/TechCrunch/?fmt=xml",
@@ -183,23 +188,23 @@ ActiveRecord::Base.transaction do
   "https://pbs.twimg.com/profile_images/421227828/apple-touch-icon_400x400.png", id)
   # 
   # 
-  # id = Category.find_by_title("Fashion").id
-  # 
-  # Feed.find_or_create_by_url("http://www.style.com/stylefile/feed/rss2",
-  # "https://pbs.twimg.com/profile_images/420194919634857985/6h-wjKyF.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.elle.com/rss/fashion/",
-  # "https://pbs.twimg.com/profile_images/464083215309762560/n310Hj9y.png", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.gq.com/services/rss/feeds/latest.xml",
-  # "https://pbs.twimg.com/profile_images/459795455266680832/hm8y6ohu.jpeg", id)
-  # 
-  # Feed.find_or_create_by_url("http://feeds.feedburner.com/TheSartorialist",
-  # "https://pbs.twimg.com/profile_images/378800000059052332/60e6bc4dfba2dacd2fd12445abd6efb3.jpeg", id)
-  # 
-  # Feed.find_or_create_by_url("http://www.vogue.com/rss/just-in/",
-  # "https://pbs.twimg.com/profile_images/344513261577911564/0aadb575a7e2fe5092ced30a46d31ff7.png", id)
-  # 
+  id = Category.find_by_title("Fashion").id
+  
+  Feed.find_or_create_by_url("http://www.style.com/stylefile/feed/rss2",
+  "https://pbs.twimg.com/profile_images/420194919634857985/6h-wjKyF.png", id)
+  
+  Feed.find_or_create_by_url("http://www.elle.com/rss/fashion/",
+  "https://pbs.twimg.com/profile_images/476898161852571648/fgj81Qmg.png", id)
+  
+  Feed.find_or_create_by_url("http://www.gq.com/services/rss/feeds/latest.xml",
+  "https://pbs.twimg.com/profile_images/477168161028993024/XVlmFNQ0.jpeg", id)
+  
+  Feed.find_or_create_by_url("http://feeds.feedburner.com/TheSartorialist",
+  "https://pbs.twimg.com/profile_images/378800000059052332/60e6bc4dfba2dacd2fd12445abd6efb3.jpeg", id)
+  
+  Feed.find_or_create_by_url("http://www.vogue.com/rss/just-in/",
+  "https://pbs.twimg.com/profile_images/344513261577911564/0aadb575a7e2fe5092ced30a46d31ff7.png", id)
+  
   # Feed.find_or_create_by_url("http://feeds.feedburner.com/SFstyle",
   # "https://pbs.twimg.com/profile_images/2794778110/95f5e27740f4fcebcaae18598d3021b1.png", id)
 
