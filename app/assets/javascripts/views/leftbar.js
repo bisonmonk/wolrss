@@ -22,7 +22,11 @@ WellFed.Views.LeftBar = Backbone.View.extend({
   },
   
   previousPage: function() {
-    Backbone.history.navigate("/categories/" + this.model.attributes.category_id, true);
+    if (this.model.attributes.category_id) {
+      Backbone.history.navigate("/categories/" + this.model.attributes.category_id, true);
+    } else {
+      Backbone.history.navigate("/#", true);
+    }
   },
   
   showModal: function() {
